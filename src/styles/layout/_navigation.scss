@@ -1,14 +1,12 @@
 // Navigation styles
 nav {
-    height: 9vh;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    width: 100%;
-
     ul {
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Open Sans', sans-serif;
+        width: 100%;
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -40,24 +38,41 @@ nav {
             color: $iconColor;
 
         }
+
+        #bars-nav {
+            display: none;
+            justify-content: end;
+        }
     }
 }
 
-#bars-nav {
-    display: none;
-    justify-content: end;
-}
+
 
 @media screen and (max-width: 867px) {
+    nav {
+        ul {
+            display: flex;
+            width: 100vw;
+            background: #f4f4f4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+            opacity: 1;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 10rem 0;
+            font-size: 2rem;
 
-    #bars-nav {
-        display: block;
-    }
+            li {
+                margin: 30pc auto;
+            }
 
-    ul {
-        width: 100%;
-        background: #f4f4f4;
-        position: absolute;
+            bars-nav {
+                display: block;
+                justify-content: end;
+            }
+        }
     }
 
     // body {
@@ -83,5 +98,10 @@ nav {
     //     &:hover {
     //         transform: translateX(0%);
     //     }
+    // }
+
+    // bars-nav {
+    //     display: block;
+    //     justify-content: end;
     // }
 }

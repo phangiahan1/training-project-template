@@ -1,13 +1,10 @@
-nav {
-  height: 9vh;
+nav ul {
   background-color: #f4f4f4;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Open Sans", sans-serif;
   width: 100%;
-}
-nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -34,21 +31,32 @@ nav li i {
   font-size: 13;
   color: #9c577d;
 }
-
-#bars-nav {
+nav li #bars-nav {
   display: none;
   justify-content: end;
 }
 
 @media screen and (max-width: 867px) {
-  #bars-nav {
-    display: block;
-  }
-
-  ul {
-    width: 100%;
+  nav ul {
+    display: flex;
+    width: 100vw;
     background: #f4f4f4;
     position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    opacity: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10rem 0;
+    font-size: 2rem;
+  }
+  nav ul li {
+    margin: 30pc auto;
+  }
+  nav ul bars-nav {
+    display: block;
+    justify-content: end;
   }
 }
 #documentTable {
