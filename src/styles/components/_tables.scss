@@ -1,0 +1,22 @@
+//Table styles
+#documentTable {
+    color: $textColorFrist;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;;
+
+    tr {
+        th {
+            @include tableIcon( #d8d8d8);
+            text-align: left;
+        }
+        td {
+            @include tableIcon( #fcfcfc);
+        }
+    }
+}
+
+#documentTableHeader{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}

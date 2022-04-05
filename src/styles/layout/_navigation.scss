@@ -1,1 +1,87 @@
 // Navigation styles
+nav {
+    height: 9vh;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .faColor {
+        color: #9a9b9a
+    }
+
+    li {
+        display: inline;
+        margin: 2vh;
+        padding: 7px 13px;
+        border-radius: 3px;
+
+        &:hover {
+            background: #a2a8ab;
+            transition: 0.5s;
+        }
+
+        a {
+            text-decoration: none;
+            color: $textColorSecondary;
+            font-size: $textNavSize;
+        }
+
+        i {
+            font-size: $iconSize;
+            color: $iconColor;
+
+        }
+    }
+}
+
+#bars-nav {
+    display: none;
+    justify-content: end;
+}
+
+@media screen and (max-width: 867px) {
+
+    #bars-nav {
+        display: block;
+    }
+
+    ul {
+        width: 100%;
+        background: #f4f4f4;
+        position: absolute;
+    }
+
+    // body {
+    //     overflow-x: hidden;
+    // }
+
+    // ul {
+    //     position: absolute;
+    //     right: 0px;
+    //     height: 92vh;
+    //     top: 8vh;
+    //     background-color: #f4f4f4;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     width: 50%;
+    //     transform: translateX(100%);
+    //     transition: transform 0.5s ease-in;
+    // }
+
+    // li {
+    //     opacity: 0;
+
+    //     &:hover {
+    //         transform: translateX(0%);
+    //     }
+    // }
+}
