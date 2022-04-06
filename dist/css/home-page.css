@@ -43,7 +43,6 @@ table {
   border-spacing: 0;
 }
 
-/* Extra */
 a {
   text-decoration: none;
 }
@@ -67,6 +66,9 @@ li {
 }
 .menu .faColor {
   color: #9a9b9a;
+}
+.menu .space-add {
+  display: none;
 }
 .menu ul {
   width: 100%;
@@ -111,6 +113,9 @@ li {
     width: 100%;
     height: auto;
   }
+  .menu .space-add {
+    display: block;
+  }
 
   .menu ul {
     display: block;
@@ -150,6 +155,7 @@ li {
   width: 100%;
   border-collapse: collapse;
   font-family: "Open Sans", sans-serif;
+  margin: 10px;
 }
 #documentTable caption {
   font-size: 1.5em;
@@ -157,8 +163,7 @@ li {
   text-align: left;
 }
 #documentTable tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   padding: 0.35em;
 }
 #documentTable th {
@@ -169,7 +174,7 @@ li {
   letter-spacing: 0.1em;
 }
 #documentTable th i {
-  margin-right: 1vh;
+  margin: 10px;
 }
 #documentTable td {
   border-bottom: 1px solid #fcfcfc;
@@ -177,10 +182,13 @@ li {
   text-align: left;
 }
 #documentTable td i {
-  margin-right: 1vh;
+  margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
+  #documentTable {
+    padding: 10px;
+  }
   #documentTable caption {
     font-size: 1.3em;
   }

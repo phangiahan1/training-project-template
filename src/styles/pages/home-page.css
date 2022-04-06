@@ -43,7 +43,6 @@ table {
   border-spacing: 0;
 }
 
-/* Extra */
 a {
   text-decoration: none;
 }
@@ -68,6 +67,10 @@ li {
 
 .menu .faColor {
   color: #9a9b9a;
+}
+
+.menu .space-add {
+  display: none;
 }
 
 .menu ul {
@@ -121,6 +124,9 @@ li {
     width: 100%;
     height: auto;
   }
+  .menu .space-add {
+    display: block;
+  }
   .menu ul {
     display: block;
     max-height: 0;
@@ -157,6 +163,7 @@ li {
   width: 100%;
   border-collapse: collapse;
   font-family: 'Open Sans', sans-serif;
+  margin: 10px;
 }
 
 #documentTable caption {
@@ -166,8 +173,7 @@ li {
 }
 
 #documentTable tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   padding: .35em;
 }
 
@@ -180,7 +186,7 @@ li {
 }
 
 #documentTable th i {
-  margin-right: 1vh;
+  margin: 10px;
 }
 
 #documentTable td {
@@ -190,10 +196,13 @@ li {
 }
 
 #documentTable td i {
-  margin-right: 1vh;
+  margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
+  #documentTable {
+    padding: 10px;
+  }
   #documentTable caption {
     font-size: 1.3em;
   }
