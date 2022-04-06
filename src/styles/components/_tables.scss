@@ -1,6 +1,6 @@
 //Table styles
 #documentTable {
-    color: $textColorFrist;
+    color: $colorTextFirst;
     width: 100%;
     border-collapse: collapse;
     font-family: 'Open Sans', sans-serif;
@@ -29,7 +29,6 @@
         @include tableIcon(#fcfcfc);
         text-align: left;
     }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -78,7 +77,7 @@
 
             &:first-child {
                 text-align: right;
-
+                background: $colorGrayMain;
             }
 
             &:last-child {

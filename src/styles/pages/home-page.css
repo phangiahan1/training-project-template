@@ -186,7 +186,7 @@ li {
 }
 
 #documentTable th i {
-  margin: 10px;
+  margin-right: 1vh;
 }
 
 #documentTable td {
@@ -196,7 +196,7 @@ li {
 }
 
 #documentTable td i {
-  margin: 10px;
+  margin-right: 1vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -241,6 +241,7 @@ li {
   }
   #documentTable td:first-child {
     text-align: right;
+    background: #f4f4f4;
   }
   #documentTable td:last-child {
     border-bottom: 0;

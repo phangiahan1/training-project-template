@@ -13,7 +13,7 @@ li {
     line-height: 50px;
     text-align: center;
     font-family: sans-serif;
-    background-color: #f4f4f4;
+    background-color: $colorGrayMain;
 }
 
 
@@ -52,13 +52,13 @@ li {
             height: inherit;
             display: inline-block;
             margin-right: 30px;
-            color: $textColorSecondary;
-            font-size: $textNavSize;
+            color: $colorTextSecondary;
+            font-size: $sizeTextNav;
             border-radius: 3px;
 
             i {
-                font-size: $iconSize;
-                color: $iconColor;
+                font-size: $sizeIcon;
+                color: $colorIcon;
             }
 
             &:hover {
