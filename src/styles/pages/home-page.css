@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200&family=Open+Sans:wght@300&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -43,6 +44,10 @@ table {
   border-spacing: 0;
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 a {
   text-decoration: none;
 }
@@ -56,7 +61,6 @@ li {
   height: 60px;
   line-height: 50px;
   text-align: center;
-  font-family: sans-serif;
   background-color: #f4f4f4;
 }
 
@@ -164,7 +168,6 @@ li {
   color: #716565;
   width: 100%;
   border-collapse: collapse;
-  font-family: 'Open Sans', sans-serif;
   margin-left: 30px;
 }
 
