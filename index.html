@@ -93,56 +93,70 @@
         </nav>
     </div>
 
-    <h1 id="documentTableHeader"> Documents</h1>
+
     <table id="documentTable">
-        <tr>
-            <th>
-                <i class="fa-solid fa-file"></i> Name
-                <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
-            </th>
-            <th>
-                Modified
-                <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
-            </th>
-            <th>
-                Modified By
-                <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
-            </th>
-            <th>
-                <i class="fa-solid fa-plus"></i>
-                Add column
-            </th>
-        </tr>
-        <tr>
-            <td><i class="fa-solid fa-folder"></i>CAS</td>
-            <td>April 30</td>
-            <td>Megan Bowen</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><i class="fa-solid fa-file-excel"></i>CoasterAndBargelloading.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Administrator MOD</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><i class="fa-solid fa-file-excel"></i>RevenueByServices.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Administrator MOD</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><i class="fa-solid fa-file-excel"></i>RevenueByServices2016.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Administrator MOD</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><i class="fa-solid fa-file-excel"></i>RevenueByServices2017.xlsx</td>
-            <td>A few seconds ago</td>
-            <td>Administrator MOD</td>
-            <td></td>
-        </tr>
+        <caption> Documents</caption>
+        <thead>
+            <tr>
+                <th scope="col">
+                    <i class="fa-solid fa-file"></i>
+                </th>
+                <th scope="col">
+                    Name
+                    <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+                </th>
+                <th scope="col">
+                    Modified
+                    <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+                </th>
+                <th scope="col">
+                    Modified By
+                    <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+                </th>
+                <th scope="col" class="hidden-style">
+                    <i class="fa-solid fa-plus"></i>
+                    Add column
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="File Type"><i class="fa-solid fa-folder"></i></td>
+                <td data-label="Name">CAS</td>
+                <td data-label="Modified">April 30</td>
+                <td data-label="Modified By"> Megan Bowen</td>
+                <td class="hidden-style"></td>
+            </tr>
+            <tr>
+                <td data-label="File Type"><i class="fa-solid fa-file-excel"></i></td>
+                <td data-label="Name">CoasterAndBargelloading.xlsx</td>
+                <td data-label="Modified">A few seconds ago</td>
+                <td data-label="Modified By"> Administrator MOD</td>
+                <td class="hidden-style"></td>
+            </tr>
+            <tr>
+                <td data-label="File Type"><i class="fa-solid fa-file-excel"></i></td>
+                <td data-label="Name">RevenueByServices.xlsx</td>
+                <td data-label="Modified">A few seconds ago</td>
+                <td data-label="Modified By"> Administrator MOD</td>
+                <td class="hidden-style"></td>
+            </tr>
+            <tr>
+                <td data-label="File Type"><i class="fa-solid fa-file-excel"></i></td>
+                <td data-label="Name">RevenueByServices2016.xlsx</td>
+                <td data-label="Modified">A few seconds ago</td>
+                <td data-label="Modified By"> Administrator MOD</td>
+                <td class="hidden-style"></td>
+            </tr>
+            <tr>
+                <td data-label="File Type"><i class="fa-solid fa-file-excel"></i></td>
+                <td data-label="Name">RevenueByServices2017.xlsx</td>
+                <td data-label="Modified">A few seconds ago</td>
+                <td data-label="Modified By"> Administrator MOD</td>
+                <td class="hidden-style"></td>
+            </tr>
+        </tbody>
+
     </table>
 
 </body>

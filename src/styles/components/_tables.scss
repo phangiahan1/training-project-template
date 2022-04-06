@@ -3,20 +3,89 @@
     color: $textColorFrist;
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Open Sans', sans-serif;;
+    font-family: 'Open Sans', sans-serif;
+
+    caption {
+        font-size: 1.5em;
+        margin: .5em 0 .75em;
+        text-align: left;
+    }
 
     tr {
-        th {
-            @include tableIcon( #d8d8d8);
-            text-align: left;
-        }
-        td {
-            @include tableIcon( #fcfcfc);
-        }
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .35em;
     }
+
+    th {
+        @include tableIcon(#d8d8d8);
+        text-align: left;
+        font-size: .85em;
+        letter-spacing: .1em;
+    }
+
+    td {
+        @include tableIcon(#fcfcfc);
+        text-align: left;
+    }
+
 }
 
-#documentTableHeader{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: normal;
+@media screen and (max-width: 768px) {
+
+
+    #documentTable {
+        caption {
+            font-size: 1.3em;
+        }
+
+        thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+
+            .hidden-style {
+                display: none;
+            }
+        }
+
+        td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: left;
+
+            &::before {
+                content: attr(data-label); //Lay data lable cua row
+                float: left;
+                text-align: left;
+                font-weight: bold;
+                text-transform: capitalize;
+                font-style: italic;
+                width: 110px;
+            }
+
+            &:first-child {
+                text-align: right;
+
+            }
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+
+
+    }
 }

@@ -159,27 +159,82 @@ li {
   font-family: 'Open Sans', sans-serif;
 }
 
-#documentTable tr th {
+#documentTable caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+  text-align: left;
+}
+
+#documentTable tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+#documentTable th {
   border-bottom: 1px solid #d8d8d8;
+  padding: 8px;
+  text-align: left;
+  font-size: .85em;
+  letter-spacing: .1em;
+}
+
+#documentTable th i {
+  margin-right: 1vh;
+}
+
+#documentTable td {
+  border-bottom: 1px solid #fcfcfc;
   padding: 8px;
   text-align: left;
 }
 
-#documentTable tr th i {
-  margin-right: 5vh;
+#documentTable td i {
+  margin-right: 1vh;
 }
 
-#documentTable tr td {
-  border-bottom: 1px solid #fcfcfc;
-  padding: 8px;
-}
-
-#documentTable tr td i {
-  margin-right: 5vh;
-}
-
-#documentTableHeader {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: normal;
+@media screen and (max-width: 768px) {
+  #documentTable caption {
+    font-size: 1.3em;
+  }
+  #documentTable thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  #documentTable tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  #documentTable tr .hidden-style {
+    display: none;
+  }
+  #documentTable td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: left;
+  }
+  #documentTable td::before {
+    content: attr(data-label);
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-style: italic;
+    width: 110px;
+  }
+  #documentTable td:first-child {
+    text-align: right;
+  }
+  #documentTable td:last-child {
+    border-bottom: 0;
+  }
 }
 /*# sourceMappingURL=home-page.css.map */
