@@ -95,6 +95,7 @@ li {
   height: inherit;
   display: inline-block;
   margin-right: 30px;
+  margin-left: 7px;
   color: #9a9b9a;
   font-size: 13;
   border-radius: 3px;
@@ -140,6 +141,7 @@ li {
     height: 50px;
     background-color: #f4f4f4;
     padding: 10px 0px 10px 5%;
+    margin-left: 0;
   }
   .menu-icon {
     width: 100px;
@@ -163,7 +165,7 @@ li {
   width: 100%;
   border-collapse: collapse;
   font-family: 'Open Sans', sans-serif;
-  margin: 10px;
+  margin-left: 30px;
 }
 
 #documentTable caption {
@@ -201,10 +203,11 @@ li {
 
 @media screen and (max-width: 768px) {
   #documentTable {
-    padding: 10px;
+    margin-left: 0;
   }
   #documentTable caption {
     font-size: 1.3em;
+    margin-left: 0;
   }
   #documentTable thead {
     border: none;

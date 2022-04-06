@@ -16,8 +16,6 @@ li {
     background-color: $colorGrayMain;
 }
 
-
-
 .menu {
     // width: 60%;
     height: 100%;
@@ -52,6 +50,7 @@ li {
             height: inherit;
             display: inline-block;
             margin-right: 30px;
+            margin-left: 7px;
             color: $colorTextSecondary;
             font-size: $sizeTextNav;
             border-radius: 3px;
@@ -104,6 +103,7 @@ li {
         height: 50px;
         background-color: #f4f4f4;
         padding: 10px 0px 10px 5%;
+        margin-left: 0;
     }
 
     .menu-icon {
