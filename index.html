@@ -12,39 +12,86 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li>
-                <i class="fa-solid fa-plus"></i>
-                <a href="#new">New</a>
-                <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
-            </li>
-            <li>
-                <i class="fa-solid fa-upload"></i>
-                <a href="#upload">Upload</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-arrows-rotate"></i>
-                <a href="#contact">Sync</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-file-excel"></i>
-                <a href="#export">Export to Excel</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-chart-line"></i>
-                <a href="#flow">Flow</a>
-                <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+    <!-- <nav class="navbar">
+        <div class="push-right">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-plus"></i>
+                    <a href="#new">New</a>
+                    <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+                </li>
+                <li>
+                    <i class="fa-solid fa-upload"></i>
+                    <a href="#upload">Upload</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <a href="#contact">Sync</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-file-excel"></i>
+                    <a href="#export">Export to Excel</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-chart-line"></i>
+                    <a href="#flow">Flow</a>
+                    <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
 
-            </li>
-            <li>
-                <i class="fa-solid fa-ellipsis faColor"></i>
-            </li>
-            <li >
-                <i class="fa-solid fa-bars" id="bars-nav"></i>
-            </li>
-        </ul>
-    </nav>
+                </li>
+                <li>
+                    <i class="fa-solid fa-ellipsis faColor"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="push-left">
+            <i class="fa-solid fa-bars" id="bars-nav"></i>
+        </div>
+
+    </nav> -->
+
+    <div class="navbar">
+        <nav class="menu">
+            <input type="checkbox" id="menuToggle">
+            <label for="menuToggle" class="menu-icon"><i class="fa fa-bars"></i></label>
+            <ul>
+                <a href="#">
+                    <li>&nbsp</li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="fa-solid fa-plus"></i>New
+                        <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="fa-solid fa-upload"></i>Upload
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="fa-solid fa-arrows-rotate"></i>Sync
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="fa-solid fa-file-excel"></i>Export to Excel
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="fa-solid fa-chart-line"></i>Flow
+                        <i class="fa-solid fa-chevron-down fa-2xs faColor"></i>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="fa-solid fa-ellipsis faColor"></i>
+                    </li>
+                </a>
+            </ul>
+        </nav>
+    </div>
 
     <h1 id="documentTableHeader"> Documents</h1>
     <table id="documentTable">
