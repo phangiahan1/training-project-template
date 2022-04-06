@@ -49,6 +49,11 @@ nav {
 
 
 @media screen and (max-width: 867px) {
+    bars-nav {
+        display: block;
+        justify-content: end;
+    }
+
     nav {
         ul {
             display: flex;
@@ -65,13 +70,10 @@ nav {
             font-size: 2rem;
 
             li {
-                margin: 30pc auto;
+                margin: 30px auto;
             }
 
-            bars-nav {
-                display: block;
-                justify-content: end;
-            }
+
         }
     }
 

@@ -37,6 +37,11 @@ nav li #bars-nav {
 }
 
 @media screen and (max-width: 867px) {
+  bars-nav {
+    display: block;
+    justify-content: end;
+  }
+
   nav ul {
     display: flex;
     width: 100vw;
@@ -52,11 +57,7 @@ nav li #bars-nav {
     font-size: 2rem;
   }
   nav ul li {
-    margin: 30pc auto;
-  }
-  nav ul bars-nav {
-    display: block;
-    justify-content: end;
+    margin: 30px auto;
   }
 }
 #documentTable {
