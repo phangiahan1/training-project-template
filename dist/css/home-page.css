@@ -190,6 +190,17 @@ li {
   margin-right: 1vh;
 }
 
+.new-item {
+  position: relative;
+  color: red;
+  font-size: 8px;
+  display: table-caption;
+  left: -10px;
+}
+.new-item::before {
+  content: "new";
+}
+
 @media screen and (max-width: 768px) {
   #documentTable {
     margin-left: 0;
