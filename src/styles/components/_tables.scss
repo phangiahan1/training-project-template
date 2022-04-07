@@ -1,12 +1,12 @@
 //Table styles
 #documentTable {
-    color: $gray-800;
+    color: $table-color;
     width: 100%;
     border-collapse: collapse;
     margin-left: 30px;
 
     caption {
-        font-size: 1.5em;
+        font-size: $table-font-size-caption;
         margin: .5em 0 .75em;
         text-align: left;
     }
@@ -19,8 +19,9 @@
     th {
         @include tableIcon(#d8d8d8);
         text-align: left;
-        font-size: .85em;
+        font-size: $table-font-size-header;
         letter-spacing: .1em;
+
         &:nth-child(1) {
             padding-left: 40px;
         }
@@ -29,16 +30,23 @@
     td {
         @include tableIcon(#fcfcfc);
         text-align: left;
+        font-size: $table-font-size;
+        color: $table-color;
+
         &:nth-child(1) {
             padding-left: 40px;
         }
+    }
+
+    .td-second {
+        color: $table-color-second;
     }
 }
 
 .new-item {
     position: relative;
     color: red;
-    font-size: 8px;
+    font-size: $table-font-size-span-new;
 
     &::before {
         content: "new";
@@ -53,7 +61,7 @@
         margin-left: 0;
 
         caption {
-            font-size: 1.3em;
+            font-size: $table-font-size-caption-sm;
             margin-left: 0;
         }
 
@@ -81,7 +89,7 @@
         td {
             border-bottom: 1px solid #ddd;
             display: block;
-            font-size: .8em;
+            font-size: $table-font-size-header;
             text-align: left;
 
             &:nth-child(1) {
@@ -107,6 +115,8 @@
                 border-bottom: 0;
             }
         }
-
+        .td-second {
+            color: $table-color;
+        }
     }
 }

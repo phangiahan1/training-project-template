@@ -32,18 +32,12 @@ $purple-900: #38002E !default;
 $border-radius-main: 3px;
 
 //Navbar
-//
+
 // scss-docs-start navbar-variables
 $navbar-font-size: 18px !default;
 $navbar-font-size-sm: 15px !default;
 $navbar-font-size-sm-bars-icon: 16px !default;
-// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 
-// $navbar-toggler-padding-y: .25rem !default;
-// $navbar-toggler-padding-x: .75rem !default;
-// $navbar-toggler-font-size: $font-size-lg !default;
-// $navbar-toggler-border-radius: $btn-border-radius !default;
-// $navbar-toggler-focus-width: $btn-focus-width !default;
 $navbar-toggler-transition: 0 0.3s !default;
 // scss-docs-end navbar-variables
 
@@ -54,11 +48,17 @@ $navbar-hover-color: $gray-500 !default;
 $navbar-hover-transition: 0.5s;
 $navbar-icon-main-color: $purple-600;
 $navbar-icon-border-radius: 5px;
-// $navbar-active-color: rgba($black, .9) !default;
-// $navbar-disabled-color: rgba($black, .3) !default;
-// $navbar-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
-// $navbar-toggler-border-color: rgba($black, .1) !default;
 // scss-docs-end navbar-theme-variables
 
 //Tables
-//
+
+// scss-docs-start table-variables
+$table-color: $gray-900 !default;
+$table-color-second: $gray-500 !default;
+
+$table-font-size-caption: 40px;
+$table-font-size-caption-sm: 25px;
+$table-font-size:19px;
+$table-font-size-header:18px;
+$table-font-size-span-new:9px;
+// scss-docs-end table-variables

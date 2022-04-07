@@ -168,13 +168,13 @@ body {
   }
 }
 #documentTable {
-  color: #343a40;
+  color: #212529;
   width: 100%;
   border-collapse: collapse;
   margin-left: 30px;
 }
 #documentTable caption {
-  font-size: 1.5em;
+  font-size: 40px;
   margin: 0.5em 0 0.75em;
   text-align: left;
 }
@@ -186,7 +186,7 @@ body {
   border-bottom: 1px solid #d8d8d8;
   padding: 8px;
   text-align: left;
-  font-size: 0.85em;
+  font-size: 18px;
   letter-spacing: 0.1em;
 }
 #documentTable th i {
@@ -199,6 +199,8 @@ body {
   border-bottom: 1px solid #fcfcfc;
   padding: 8px;
   text-align: left;
+  font-size: 19px;
+  color: #212529;
 }
 #documentTable td i {
   margin-right: 1vh;
@@ -206,11 +208,14 @@ body {
 #documentTable td:nth-child(1) {
   padding-left: 40px;
 }
+#documentTable .td-second {
+  color: #adb5bd;
+}
 
 .new-item {
   position: relative;
   color: red;
-  font-size: 8px;
+  font-size: 9px;
   display: table-caption;
   left: -10px;
 }
@@ -223,7 +228,7 @@ body {
     margin-left: 0;
   }
   #documentTable caption {
-    font-size: 1.3em;
+    font-size: 25px;
     margin-left: 0;
   }
   #documentTable thead {
@@ -247,7 +252,7 @@ body {
   #documentTable td {
     border-bottom: 1px solid #ddd;
     display: block;
-    font-size: 0.8em;
+    font-size: 18px;
     text-align: left;
   }
   #documentTable td:nth-child(1) {
@@ -268,6 +273,9 @@ body {
   }
   #documentTable td:last-child {
     border-bottom: 0;
+  }
+  #documentTable .td-second {
+    color: #212529;
   }
 }
 
