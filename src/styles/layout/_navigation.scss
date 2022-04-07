@@ -58,6 +58,7 @@
                 i+span {
                     margin-left: 3px;
                 }
+                @include iconColor();
             }
 
             &:hover {

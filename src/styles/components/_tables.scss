@@ -30,6 +30,7 @@
     td {
         @include tableIcon(#fcfcfc);
         @include truncate();
+        @include iconColor();
         text-align: left;
         font-size: $table-font-size;
         color: $table-color;

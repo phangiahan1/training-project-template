@@ -15,3 +15,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+@mixin iconColor {
+    .fa-file-excel {
+        color: green;
+    }
+}
