@@ -215,12 +215,9 @@ body {
 .new-item {
   position: relative;
   color: red;
-  font-size: 9px;
+  font-size: 10px;
   display: table-caption;
   left: -10px;
-}
-.new-item::before {
-  content: "new";
 }
 
 @media screen and (max-width: 768px) {

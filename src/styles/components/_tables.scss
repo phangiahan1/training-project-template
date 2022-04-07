@@ -47,11 +47,6 @@
     position: relative;
     color: red;
     font-size: $table-font-size-span-new;
-
-    &::before {
-        content: "new";
-    }
-
     display: table-caption;
     left: -10px;
 }
@@ -115,6 +110,7 @@
                 border-bottom: 0;
             }
         }
+
         .td-second {
             color: $table-color;
         }
