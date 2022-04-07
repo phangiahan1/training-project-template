@@ -103,6 +103,10 @@ body {
 .menu ul li a .fa-file-excel {
   color: green;
 }
+.menu ul li a .fa-chevron-down {
+  color: #6c757d;
+  font-size: 10px;
+}
 .menu ul li:hover {
   background: #adb5bd;
   transition: 0.5s;
@@ -213,6 +217,10 @@ body {
 }
 #documentTable td .fa-file-excel {
   color: green;
+}
+#documentTable td .fa-chevron-down {
+  color: #6c757d;
+  font-size: 10px;
 }
 #documentTable td:nth-child(1) {
   padding-left: 40px;
