@@ -71,6 +71,10 @@ li {
 .menu .faColor {
   color: #9a9b9a;
 }
+.menu .fa-bars {
+  color: #9a9b9a;
+  margin-top: 7px;
+}
 .menu .space-add {
   display: none;
 }
@@ -139,13 +143,16 @@ li {
   }
 
   .menu-icon {
-    width: 100px;
+    width: 50px;
     height: inherit;
     display: block;
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 0;
-    line-height: 60px;
+    line-height: 45px;
+    border-radius: 10px;
+    border: 2px solid #9a9b9a;
+    display: table-cell;
   }
 
   #menuToggle:checked ~ ul {

@@ -12,7 +12,6 @@ li {
     height: 60px;
     line-height: 50px;
     text-align: center;
-    // font-family: sans-serif;
     background-color: $colorGrayMain;
 }
 
@@ -23,6 +22,11 @@ li {
 
     .faColor {
         color: #9a9b9a
+    }
+
+    .fa-bars{
+        color: $colorTextSecondary;
+        margin-top: 7px;
     }
 
     .space-add {
@@ -107,13 +111,16 @@ li {
     }
 
     .menu-icon {
-        width: 100px;
+        width: 50px;
         height: inherit;
         display: block;
         position: absolute;
-        top: 0;
+        top: 5px;
         right: 0;
-        line-height: 60px;
+        line-height: 45px;
+        border-radius: 10px;
+        border: 2px solid $colorTextSecondary;
+        display: table-cell;
     }
 
     #menuToggle:checked~ul {
