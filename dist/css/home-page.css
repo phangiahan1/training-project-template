@@ -125,14 +125,12 @@ li {
   .menu .space-add {
     display: block;
   }
-
   .menu ul {
     display: block;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s;
   }
-
   .menu ul a {
     text-align: left;
     width: 100%;
@@ -154,13 +152,12 @@ li {
     border: 2px solid #9a9b9a;
     display: table-cell;
   }
+  .menu-icon i {
+    font-size: 1.7em;
+  }
 
   #menuToggle:checked ~ ul {
     max-height: 100%;
-  }
-
-  .menu-icon i {
-    font-size: 1.7em;
   }
 }
 #documentTable {
