@@ -198,6 +198,9 @@ body {
 #documentTable td {
   border-bottom: 1px solid #fcfcfc;
   padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: left;
   font-size: 19px;
   color: #212529;
@@ -247,6 +250,9 @@ body {
     display: none;
   }
   #documentTable td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     border-bottom: 1px solid #ddd;
     display: block;
     font-size: 18px;

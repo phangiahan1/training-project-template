@@ -1,9 +1,17 @@
 // Define mixins
-@mixin tableIcon ($border-bottom-color){
+@mixin tableIcon ($border-bottom-color) {
     border-bottom: 1px solid $border-bottom-color;
     padding: 8px;
-    i{
-        margin-right: 1vh;        
+
+    i {
+        margin-right: 1vh;
         //margin: 10px;
     }
+}
+
+@mixin truncate {
+    // width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
