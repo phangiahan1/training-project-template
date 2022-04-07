@@ -185,6 +185,9 @@ li {
 #documentTable th i {
   margin-right: 1vh;
 }
+#documentTable th:nth-child(1) {
+  padding-left: 40px;
+}
 #documentTable td {
   border-bottom: 1px solid #fcfcfc;
   padding: 8px;
@@ -192,6 +195,9 @@ li {
 }
 #documentTable td i {
   margin-right: 1vh;
+}
+#documentTable td:nth-child(1) {
+  padding-left: 40px;
 }
 
 .new-item {
@@ -236,6 +242,9 @@ li {
     display: block;
     font-size: 0.8em;
     text-align: left;
+  }
+  #documentTable td:nth-child(1) {
+    padding-left: 0;
   }
   #documentTable td::before {
     content: attr(data-label);

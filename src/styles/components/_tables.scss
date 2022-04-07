@@ -23,21 +23,29 @@
         text-align: left;
         font-size: .85em;
         letter-spacing: .1em;
+        &:nth-child(1) {
+            padding-left: 40px;
+        }
     }
 
     td {
         @include tableIcon(#fcfcfc);
         text-align: left;
+        &:nth-child(1) {
+            padding-left: 40px;
+        }
     }
 }
 
-.new-item{
+.new-item {
     position: relative;
     color: red;
     font-size: 8px;
-    &::before{
+
+    &::before {
         content: "new";
     }
+
     display: table-caption;
     left: -10px;
 }
@@ -45,6 +53,7 @@
 @media screen and (max-width: 768px) {
     #documentTable {
         margin-left: 0;
+
         caption {
             font-size: 1.3em;
             margin-left: 0;
@@ -76,6 +85,10 @@
             display: block;
             font-size: .8em;
             text-align: left;
+
+            &:nth-child(1) {
+                padding-left: 0;
+            }
 
             &::before {
                 content: attr(data-label); //Lay data lable cua row
