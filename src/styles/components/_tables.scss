@@ -1,6 +1,6 @@
 //Table styles
 #documentTable {
-    color: $colorTextFirst;
+    color: $gray-800;
     width: 100%;
     border-collapse: collapse;
     margin-left: 30px;
@@ -100,7 +100,7 @@
 
             &:first-child {
                 text-align: right;
-                background: $colorGrayMain;
+                background: $gray-200;
             }
 
             &:last-child {

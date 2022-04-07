@@ -1,8 +1,30 @@
 // Define variables
-$colorTextSecondary: #9a9b9a;
-$colorTextFirst: #716565;
 $sizeTextNav: 13;
-$colorIcon: #9c577d;
 $sizeIcon: 13;
-$colorGrayMain: #f4f4f4;
+// Color system
 
+// scss-docs-start gray-color-variables
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+// scss-docs-end gray-color-variables
+
+// scss-docs-start purple-color-variables
+$purple-100: #FDD8F7 !default;
+$purple-200: #FDA5EE !default;
+$purple-300: #F278DE !default;
+$purple-400: #D945C0 !default;
+$purple-500: #B8179D !default;
+$purple-600: #9D0C84 !default;
+$purple-700: #780264 !default;
+$purple-800: #560048 !default;
+$purple-900: #38002E !default;
+// scss-docs-end purple-color-variables

@@ -53,7 +53,7 @@ body {
   height: 60px;
   line-height: 50px;
   text-align: center;
-  background-color: #f4f4f4;
+  background-color: #e9ecef;
 }
 
 .menu {
@@ -61,10 +61,10 @@ body {
   float: left;
 }
 .menu .faColor {
-  color: #9a9b9a;
+  color: #adb5bd;
 }
 .menu .fa-bars {
-  color: #9a9b9a;
+  color: #6c757d;
   margin-top: 7px;
 }
 .menu .space-add {
@@ -87,7 +87,7 @@ body {
   width: fit-content;
   height: inherit;
   display: inline-block;
-  color: #9a9b9a;
+  color: #6c757d;
   font-size: 13;
 }
 .menu ul li a {
@@ -95,7 +95,7 @@ body {
 }
 .menu ul li a i {
   font-size: 13;
-  color: #9c577d;
+  color: #9D0C84;
 }
 .menu ul li a i + span {
   margin-left: 3px;
@@ -134,7 +134,7 @@ body {
     text-align: left;
     width: 100%;
     height: 50px;
-    background-color: #f4f4f4;
+    background-color: #e9ecef;
     padding: 10px 0px 10px 5%;
     margin-left: 0;
   }
@@ -148,7 +148,7 @@ body {
     right: 0;
     line-height: 45px;
     border-radius: 10px;
-    border: 2px solid #9a9b9a;
+    border: 2px solid #6c757d;
     display: table-cell;
   }
   .menu-icon i {
@@ -160,7 +160,7 @@ body {
   }
 }
 #documentTable {
-  color: #716565;
+  color: #343a40;
   width: 100%;
   border-collapse: collapse;
   margin-left: 30px;
@@ -256,7 +256,7 @@ body {
   }
   #documentTable td:first-child {
     text-align: right;
-    background: #f4f4f4;
+    background: #e9ecef;
   }
   #documentTable td:last-child {
     border-bottom: 0;
