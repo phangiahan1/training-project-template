@@ -10,11 +10,6 @@
 .menu {
     height: 100%;
     float: left;
-
-    .faColor {
-        color: $gray-500
-    }
-
     .fa-bars {
         color: $navbar-color-strong;
         margin-top: 7px;
@@ -46,6 +41,7 @@
             display: inline-block;
             color: $gray-600;
             font-size: $navbar-font-size;
+            text-decoration: none;
 
             a {
                 text-decoration: none;

@@ -60,9 +60,6 @@ body {
   height: 100%;
   float: left;
 }
-.menu .faColor {
-  color: #adb5bd;
-}
 .menu .fa-bars {
   color: #6c757d;
   margin-top: 7px;
@@ -89,6 +86,7 @@ body {
   display: inline-block;
   color: #6c757d;
   font-size: 18px;
+  text-decoration: none;
 }
 .menu ul li a {
   text-decoration: none;
@@ -106,6 +104,12 @@ body {
 .menu ul li a .fa-chevron-down {
   color: #6c757d;
   font-size: 10px;
+}
+.menu ul li a .fa-ellipsis {
+  color: #6c757d;
+}
+.menu ul li a .fa-yelp {
+  color: red;
 }
 .menu ul li:hover {
   background: #adb5bd;
@@ -222,6 +226,12 @@ body {
   color: #6c757d;
   font-size: 10px;
 }
+#documentTable td .fa-ellipsis {
+  color: #6c757d;
+}
+#documentTable td .fa-yelp {
+  color: red;
+}
 #documentTable td:nth-child(1) {
   padding-left: 40px;
 }
@@ -231,7 +241,6 @@ body {
 
 .new-item {
   position: relative;
-  color: red;
   font-size: 10px;
   display: table-caption;
   left: -10px;
