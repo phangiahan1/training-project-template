@@ -1,1 +1,25 @@
 // Form styles
+.inputForm {
+    max-width: 500px;
+    width: 100%;
+    background: $gray-200;
+    margin: 50px auto;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+    padding: 30px;
+
+    &-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: $gray-800;
+        text-transform: uppercase;
+        text-align: left;
+        display: block;
+
+        .fa-xmark {
+            text-align: right;
+            color: red;
+
+        }
+    }
+}
