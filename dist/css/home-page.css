@@ -96,6 +96,11 @@ body {
   display: block;
   padding: 5px;
 }
+@media screen and (max-width: 768px) {
+  .menu ul li a {
+    display: contents;
+  }
+}
 .menu ul li a i {
   font-size: 18px;
   color: #9D0C84;
@@ -271,7 +276,7 @@ body {
     width: 1px;
   }
   #documentTable tr {
-    border-bottom: 3px solid #ddd;
+    border-bottom: 5px solid #fff;
     display: block;
     margin-bottom: 0.625em;
   }
