@@ -1,0 +1,17 @@
+.fullWidthInput {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid $gray-300;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    outline: none;
+
+    &:focus {
+        border: 2px solid $blue-800;
+    }
+}

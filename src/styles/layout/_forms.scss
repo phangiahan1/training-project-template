@@ -1,25 +1,44 @@
 // Form styles
+#formCreateFolder {
+    display: none;
+}
+
 .inputForm {
-    max-width: 500px;
+    max-width: 300px;
     width: 100%;
     background: $gray-200;
     margin: 50px auto;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
     padding: 30px;
 
+
+
+    @media screen and (max-width: 768px) {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
     &-title {
-        font-size: 24px;
+        display: block;
+        font-size: 18px;
         font-weight: 700;
         margin-bottom: 25px;
         color: $gray-800;
-        text-transform: uppercase;
         text-align: left;
-        display: block;
 
         .fa-xmark {
-            text-align: right;
-            color: red;
-
+            float: right;
+            color: $gray-800;
         }
+    }
+
+    &-body {
+        display: block;
+        padding-bottom: 30px;
+    }
+
+    &-button {
+        display: block;
+        text-align: right;
     }
 }

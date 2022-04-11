@@ -1,9 +1,4 @@
-export interface File {
-    id: number;
-    name: string;
-    extension: string;
-    createAt: Date;
-    createBy: Date;
-    modifiedAt: Date;
-    modifiedBy: string;
-  }
+import {FileFormatter} from '../interfaces/FileFormat';
+export class File implements FileFormatter{
+  
+}

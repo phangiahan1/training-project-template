@@ -189,26 +189,67 @@ body {
     max-height: 100%;
   }
 }
+#formCreateFolder {
+  display: none;
+}
+
 .inputForm {
-  max-width: 500px;
+  max-width: 300px;
   width: 100%;
   background: #e9ecef;
   margin: 50px auto;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
   padding: 30px;
 }
+@media screen and (max-width: 768px) {
+  .inputForm {
+    padding: 20px;
+    margin: 30px auto;
+  }
+}
 .inputForm-title {
-  font-size: 24px;
+  display: block;
+  font-size: 18px;
   font-weight: 700;
   margin-bottom: 25px;
   color: #343a40;
-  text-transform: uppercase;
   text-align: left;
-  display: block;
 }
 .inputForm-title .fa-xmark {
+  float: right;
+  color: #343a40;
+}
+.inputForm-body {
+  display: block;
+  padding-bottom: 30px;
+}
+.inputForm-button {
+  display: block;
   text-align: right;
-  color: red;
+}
+
+.createButton {
+  font-size: 16px;
+  color: #fff;
+  background-color: #0077B6;
+  border: none;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.createButton:hover {
+  background-color: #023E8A;
+}
+
+.disabledButton {
+  background-color: #ced4da;
+  color: #6c757d;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.disabledButton:hover {
+  background-color: #adb5bd;
 }
 
 #documentTable {
@@ -336,6 +377,21 @@ body {
   #documentTable .td-second {
     color: #212529;
   }
+}
+.fullWidthInput {
+  width: 100%;
+  font-size: 15px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  outline: none;
+}
+.fullWidthInput:focus {
+  border: 2px solid #023E8A;
 }
 
 /*# sourceMappingURL=home-page.css.map*/

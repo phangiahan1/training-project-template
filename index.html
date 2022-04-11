@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="hana">  
+    <meta name="author" content="hana">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./dist/css/home-page.css">
     <script src="https://kit.fontawesome.com/d7463ce0d8.js" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
                 <li class="space-add">
                     <a href="#"></a>
                 </li>
-                <li>
+                <li onclick="showCreateForm()">
                     <a href="#">
                         <i class="fa-solid fa-plus"></i>
                         <span> New </span>
@@ -59,12 +59,21 @@
             </ul>
         </nav>
     </div>
-    <div class="inputForm">
-        <div class="inputForm-title">
-            Create a new file/folders
-            <i class="fa-solid fa-xmark"></i>
+    <form id="formCreateFolder">
+        <div class="inputForm">
+            <div class="inputForm-title">
+                Create a folder
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+
+            <div class="inputForm-body">
+                <input type="text" class=" fullWidthInput" placeholder="Enter the folder name">
+            </div>
+            <div class="inputForm-button">
+                <input type="submit" value="Create" class=" createButton disabledButton">
+            </div>
         </div>
-    </div>
+    </form>
     <table id="documentTable">
         <caption> Documents</caption>
         <thead>
@@ -133,5 +142,11 @@
         </tbody>
     </table>
 </body>
+
+<script type="text/javascript">
+    function showCreateForm() {
+        document.getElementById('formCreateFolder').style.display = 'block';
+    }
+</script>
 
 </html>

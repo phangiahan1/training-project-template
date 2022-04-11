@@ -1,1 +1,26 @@
 // Button Styles
+.createButton {
+    font-size: 16px;
+    color: $white;
+    background-color: $blue-700;
+    border: none;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $blue-800;
+    }
+}
+
+.disabledButton {
+    background-color: $gray-400;
+    color: $gray-600;
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    &:hover{
+        background-color: $gray-500 ;
+    }
+}
