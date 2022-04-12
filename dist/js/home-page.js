@@ -86,6 +86,62 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/scripts/components/_forms.ts":
+/*!******************************************!*\
+  !*** ./src/scripts/components/_forms.ts ***!
+  \******************************************/
+/*! exports provided: showCreateForm, closeCreateForm, showUploadForm, closeUploadForm */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showCreateForm", function() { return showCreateForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeCreateForm", function() { return closeCreateForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUploadForm", function() { return showUploadForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeUploadForm", function() { return closeUploadForm; });
+//create form
+function showCreateForm() {
+  const createBtn = document.getElementById("createFormBtn");
+
+  if (createBtn) {
+    createBtn.addEventListener("click", function () {
+      document.getElementById('formCreateFolder').style.display = 'block';
+      document.getElementById('createFormButton').disabled = true;
+    }, true);
+  }
+}
+function closeCreateForm() {
+  const createBtnClose = document.getElementById("closeCreateFormBtn");
+
+  if (createBtnClose) {
+    createBtnClose.addEventListener("click", function () {
+      document.getElementById('formCreateFolder').style.display = 'none';
+    }, true);
+  }
+} //upload form
+
+function showUploadForm() {
+  const uploadBtn = document.getElementById("uploadFormBtn");
+
+  if (uploadBtn) {
+    uploadBtn.addEventListener("click", function () {
+      document.getElementById('formUploadFolder').style.display = 'block';
+      document.getElementById('uploadFormButton').disabled = true;
+    }, true);
+  }
+}
+function closeUploadForm() {
+  const uploadBtn = document.getElementById("closeUploadFormBtn");
+
+  if (uploadBtn) {
+    uploadBtn.addEventListener("click", function () {
+      document.getElementById('formUploadFolder').style.display = 'none';
+    }, true);
+  }
+}
+
+/***/ }),
+
 /***/ "./src/scripts/components/_grid.ts":
 /*!*****************************************!*\
   !*** ./src/scripts/components/_grid.ts ***!
@@ -113,10 +169,19 @@ const renderGrid = () => {// TODO: implement code to Render grid
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/_helper */ "./src/scripts/utilities/_helper.ts");
 /* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_grid */ "./src/scripts/components/_grid.ts");
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/_forms */ "./src/scripts/components/_forms.ts");
+
+
 
 
 Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
-  Object(_components_grid__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_components_grid__WEBPACK_IMPORTED_MODULE_1__["default"])(); //upload form
+
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeCreateForm"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showCreateForm"])(); //upload form
+
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeUploadForm"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showUploadForm"])();
 });
 
 /***/ }),

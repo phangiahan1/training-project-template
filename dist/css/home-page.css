@@ -193,6 +193,10 @@ body {
   display: none;
 }
 
+#formUploadFolder {
+  display: none;
+}
+
 .inputForm {
   max-width: 300px;
   width: 100%;
@@ -228,6 +232,41 @@ body {
   text-align: right;
 }
 
+.uploadForm {
+  max-width: 300px;
+  width: 100%;
+  background: #e9ecef;
+  margin: 50px auto;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+  padding: 30px;
+}
+@media screen and (max-width: 768px) {
+  .uploadForm {
+    padding: 20px;
+    margin: 30px auto;
+  }
+}
+.uploadForm-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #343a40;
+  text-align: left;
+}
+.uploadForm-title .fa-xmark {
+  float: right;
+  color: #343a40;
+}
+.uploadForm-body {
+  display: block;
+  padding-bottom: 30px;
+}
+.uploadForm-button {
+  display: block;
+  text-align: right;
+}
+
 .createButton {
   font-size: 16px;
   color: #fff;
@@ -241,14 +280,36 @@ body {
 .createButton:hover {
   background-color: #023E8A;
 }
-
-.disabledButton {
+.createButton:disabled {
   background-color: #ced4da;
   color: #6c757d;
   opacity: 0.6;
   cursor: not-allowed;
 }
-.disabledButton:hover {
+.createButton:disabled:hover {
+  background-color: #adb5bd;
+}
+
+.uploadButton {
+  font-size: 16px;
+  color: #fff;
+  background-color: #0077B6;
+  border: none;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.uploadButton:hover {
+  background-color: #023E8A;
+}
+.uploadButton:disabled {
+  background-color: #ced4da;
+  color: #6c757d;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.uploadButton:disabled:hover {
   background-color: #adb5bd;
 }
 

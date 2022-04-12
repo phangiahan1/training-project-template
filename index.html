@@ -20,14 +20,14 @@
                 <li class="space-add">
                     <a href="#"></a>
                 </li>
-                <li onclick="showCreateForm()">
+                <li id="createFormBtn">
                     <a href="#">
                         <i class="fa-solid fa-plus"></i>
                         <span> New </span>
                         <i class="fa-solid fa-chevron-down fa-2xs"></i>
                     </a>
                 </li>
-                <li>
+                <li id="uploadFormBtn">
                     <a href="#">
                         <i class="fa-solid fa-upload"></i>
                         <span>Upload</span>
@@ -63,17 +63,36 @@
         <div class="inputForm">
             <div class="inputForm-title">
                 Create a folder
-                <i class="fa-solid fa-xmark"></i>
+                <i class="fa-solid fa-xmark" id="closeCreateFormBtn"></i>
             </div>
 
             <div class="inputForm-body">
-                <input type="text" class=" fullWidthInput" placeholder="Enter the folder name">
+                <input required id="createFormInput" type="text" class=" fullWidthInput" onkeyup="validateCreateForm1()"
+                    placeholder="Enter the folder name">
             </div>
             <div class="inputForm-button">
-                <input type="submit" value="Create" class=" createButton disabledButton">
+                <input id="createFormButton" type="submit" value="Create" class=" createButton">
             </div>
         </div>
     </form>
+    
+    <form id="formUploadFolder">
+        <div class="uploadForm">
+            <div class="uploadForm-title">
+                Upload a folder
+                <i class="fa-solid fa-xmark" id="closeUploadFormBtn"></i>
+            </div>
+
+            <div class="uploadForm-body">
+                <input required multiple id="uploadFormInput" type="file" class=" fullWidthInput" onkeyup="validateCreateForm1()"
+                    placeholder="Enter the folder name" hidden="hidden">
+            </div>
+            <div class="uploadForm-button">
+                <input id="uploadFormButton" type="submit" value="Upload" class=" uploadButton">
+            </div>
+        </div>
+    </form>
+    
     <table id="documentTable">
         <caption> Documents</caption>
         <thead>
@@ -141,12 +160,18 @@
             </tr>
         </tbody>
     </table>
-</body>
+    <script type="text/javascript" src="./dist/js/home-page.js">
+    </script>
+    <script>
+        function validateCreateForm1() {
+            if (document.getElementById('createFormInput').value !== '') {
+                (document.getElementById('createFormButton')).disabled = false;
+            } else {
+                (document.getElementById('createFormButton')).disabled = true;
+            };
 
-<script type="text/javascript">
-    function showCreateForm() {
-        document.getElementById('formCreateFolder').style.display = 'block';
-    }
-</script>
+        }
+    </script>
+</body>
 
 </html>
