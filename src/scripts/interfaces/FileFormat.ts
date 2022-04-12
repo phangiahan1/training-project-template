@@ -17,7 +17,7 @@ export interface FileFormatter {
   modifiedBy: string
 
   create(): boolean
-  read(): globalThis.File 
+  read(): File 
   update(): boolean
   delete(): boolean
 }

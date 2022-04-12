@@ -90,7 +90,7 @@
 /*!******************************************!*\
   !*** ./src/scripts/components/_forms.ts ***!
   \******************************************/
-/*! exports provided: showCreateForm, closeCreateForm, showUploadForm, closeUploadForm */
+/*! exports provided: showCreateForm, closeCreateForm, showUploadForm, closeUploadForm, uploadFile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99,6 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeCreateForm", function() { return closeCreateForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUploadForm", function() { return showUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeUploadForm", function() { return closeUploadForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return uploadFile; });
 //create form
 function showCreateForm() {
   const createBtn = document.getElementById("createFormBtn");
@@ -136,6 +137,19 @@ function closeUploadForm() {
   if (uploadBtn) {
     uploadBtn.addEventListener("click", function () {
       document.getElementById('formUploadFolder').style.display = 'none';
+    }, true);
+  }
+}
+function uploadFile() {
+  const uploadBtn = document.getElementById("uploadFormButton");
+
+  if (uploadBtn) {
+    uploadBtn.addEventListener("click", function () {
+      let uploadFileName = document.getElementById('uploadFormInput').files;
+
+      if (uploadFileName) {
+        console.log(uploadFileName);
+      }
     }, true);
   }
 }
@@ -182,6 +196,7 @@ Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
 
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeUploadForm"])();
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showUploadForm"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["uploadFile"])();
 });
 
 /***/ }),

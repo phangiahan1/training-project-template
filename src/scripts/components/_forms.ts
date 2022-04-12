@@ -16,8 +16,9 @@ export function closeCreateForm() {
             document.getElementById('formCreateFolder')!.style.display = 'none';
         }, true)
     }
-
 }
+
+
 
 //upload form
 export function showUploadForm() {
@@ -37,4 +38,18 @@ export function closeUploadForm() {
             document.getElementById('formUploadFolder')!.style.display = 'none';
         }, true)
     }
+}
+
+export function uploadFile() {
+    const uploadBtn = document.getElementById("uploadFormButton");
+    if (uploadBtn) {
+        uploadBtn.addEventListener("click", function () {
+            let uploadFileName = (document.getElementById('uploadFormInput') as HTMLInputElement).files;
+            if (uploadFileName) {
+                console.log(uploadFileName);
+            }
+        }, true)
+    }
+
+
 }

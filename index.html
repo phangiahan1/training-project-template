@@ -67,7 +67,7 @@
             </div>
 
             <div class="inputForm-body">
-                <input required id="createFormInput" type="text" class=" fullWidthInput" onkeyup="validateCreateForm1()"
+                <input required id="createFormInput" type="text" class=" fullWidthInput" onkeyup="validateCreateForm()"
                     placeholder="Enter the folder name">
             </div>
             <div class="inputForm-button">
@@ -75,7 +75,7 @@
             </div>
         </div>
     </form>
-    
+
     <form id="formUploadFolder">
         <div class="uploadForm">
             <div class="uploadForm-title">
@@ -84,15 +84,15 @@
             </div>
 
             <div class="uploadForm-body">
-                <input required multiple id="uploadFormInput" type="file" class=" fullWidthInput" onkeyup="validateCreateForm1()"
-                    placeholder="Enter the folder name" hidden="hidden">
+                <input required multiple id="uploadFormInput" type="file" class=" fullWidthInput"
+                    onchange="validateCreateForm1()" placeholder="Enter the folder name" hidden="hidden">
             </div>
             <div class="uploadForm-button">
                 <input id="uploadFormButton" type="submit" value="Upload" class=" uploadButton">
             </div>
         </div>
     </form>
-    
+
     <table id="documentTable">
         <caption> Documents</caption>
         <thead>
@@ -163,11 +163,18 @@
     <script type="text/javascript" src="./dist/js/home-page.js">
     </script>
     <script>
-        function validateCreateForm1() {
+        function validateCreateForm() {
             if (document.getElementById('createFormInput').value !== '') {
                 (document.getElementById('createFormButton')).disabled = false;
             } else {
                 (document.getElementById('createFormButton')).disabled = true;
+            };
+        }
+        function validateCreateForm1() {
+            if (document.getElementById('uploadFormInput').files[0].name !== '') {
+                (document.getElementById('uploadFormButton')).disabled = false;
+            } else {
+                (document.getElementById('uploadFormButton')).disabled = true;
             };
         }
     </script>

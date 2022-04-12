@@ -1,7 +1,7 @@
 import ready from '../utilities/_helper';
 import renderGrid from '../components/_grid';
 import {showCreateForm, closeCreateForm} from '../components/_forms'
-import {showUploadForm, closeUploadForm} from '../components/_forms';
+import {showUploadForm, closeUploadForm, uploadFile} from '../components/_forms';
 
 ready(() => {
   renderGrid();
@@ -13,5 +13,6 @@ ready(() => {
   //upload form
   closeUploadForm();
   showUploadForm();
+  uploadFile();
 });
 
