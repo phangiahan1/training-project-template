@@ -37,7 +37,7 @@ export class FileAndFolderList {
             _tr += `
             <tr>
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name">${element.name}</td>
+                <td data-label="Name" id="editFileForm"> ${element.name} <i class="fa-solid fa-ellipsis-vertical fa-2xs" style="float: right; color: gray;"></i></td>
                 <td data-label="Modified" class="td-second">${element.modifiedAt}</td>
                 <td data-label="Modified By" class="td-second"> ${element.modifiedBy}</td>
                 <td class="hidden-style"></td>
