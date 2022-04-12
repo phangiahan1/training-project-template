@@ -16,6 +16,11 @@ export class File implements FileFormatter {
         this.modifiedAt = modifiedAt;
         this.modifiedBy = modifiedBy;
     }
+    upload(file: File): boolean {
+        localStorage.setItem("fileUpload", JSON.stringify(file))
+        console.log("Save thanh cong")
+        return true
+    }
 
     create(): boolean {
         throw new Error('Method not implemented.');

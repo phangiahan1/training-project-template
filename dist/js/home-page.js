@@ -100,7 +100,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUploadForm", function() { return showUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeUploadForm", function() { return closeUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return uploadFile; });
-//create form
 function showCreateForm() {
   const createBtn = document.getElementById("createFormBtn");
 
@@ -140,8 +139,15 @@ function closeUploadForm() {
     }, true);
   }
 }
+
+function getExtension(fileName) {
+  const [file, extesion] = fileName.split(".");
+  return extesion;
+}
+
 function uploadFile() {
   const uploadBtn = document.getElementById("uploadFormButton");
+  let dateTime = new Date();
 
   if (uploadBtn) {
     uploadBtn.addEventListener("click", function () {
@@ -149,6 +155,10 @@ function uploadFile() {
 
       if (uploadFileName) {
         console.log(uploadFileName);
+
+        for (let index = 0; index < uploadFileName.length; index++) {
+          const element = uploadFileName[index]; //const newFile = new File(0, element.name, getExtension(element.name), dateTime, "Admin", , "Admin")
+        }
       }
     }, true);
   }

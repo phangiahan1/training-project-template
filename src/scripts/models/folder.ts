@@ -16,6 +16,10 @@ export class Folder implements FileFormatter {
         this.modifiedAt = modifiedAt;
         this.modifiedBy = modifiedBy;
     }
+    upload(f: Folder): boolean {
+
+       return true;
+    }
 
     create(): boolean {
         throw new Error('Method not implemented.');

@@ -17,6 +17,7 @@ export interface FileFormatter {
   modifiedBy: string
 
   create(): boolean
+  upload(file: FileFormatter): boolean
   read(): File 
   update(): boolean
   delete(): boolean
