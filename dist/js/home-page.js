@@ -100,6 +100,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUploadForm", function() { return showUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeUploadForm", function() { return closeUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return uploadFile; });
+/* harmony import */ var _models_file__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/file */ "./src/scripts/models/file.ts");
+//create form
+
 function showCreateForm() {
   const createBtn = document.getElementById("createFormBtn");
 
@@ -145,7 +148,7 @@ function getExtension(fileName) {
   return extesion;
 }
 
-function uploadFile() {
+function uploadFile(a) {
   const uploadBtn = document.getElementById("uploadFormButton");
   let dateTime = new Date();
 
@@ -157,7 +160,10 @@ function uploadFile() {
         console.log(uploadFileName);
 
         for (let index = 0; index < uploadFileName.length; index++) {
-          const element = uploadFileName[index]; //const newFile = new File(0, element.name, getExtension(element.name), dateTime, "Admin", , "Admin")
+          const element = uploadFileName[index];
+          const newFile = new _models_file__WEBPACK_IMPORTED_MODULE_0__["File"](0, element.name, getExtension(element.name), dateTime, "Admin", dateTime, "Admin");
+          a.upload(newFile);
+          document.getElementById('formUploadFolder').style.display = 'none';
         }
       }
     }, true);
@@ -182,6 +188,121 @@ const renderGrid = () => {// TODO: implement code to Render grid
 
 /***/ }),
 
+/***/ "./src/scripts/models/FileAndFolderList.ts":
+/*!*************************************************!*\
+  !*** ./src/scripts/models/FileAndFolderList.ts ***!
+  \*************************************************/
+/*! exports provided: FileAndFolderList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileAndFolderList", function() { return FileAndFolderList; });
+var iconForFileType;
+
+(function (iconForFileType) {
+  iconForFileType["xlsx"] = "file-excel";
+  iconForFileType["jpeg"] = "file-image";
+  iconForFileType["folder"] = "folder";
+  iconForFileType["file"] = "file";
+  iconForFileType["pdf"] = "file-pdf";
+  iconForFileType["doc"] = "file-word";
+})(iconForFileType || (iconForFileType = {}));
+
+;
+class FileAndFolderList {
+  constructor() {
+    this.data = this.setData();
+  }
+
+  setData() {
+    let dataInStorage = localStorage.getItem('fileListData');
+
+    if (dataInStorage) {
+      return JSON.parse(dataInStorage);
+    }
+
+    return [];
+  }
+
+  showListForTable() {
+    let tbody = document.getElementById('tbodyDataFileList');
+    let _tr = '';
+
+    for (const element of this.data) {
+      let icon;
+      if (element.extension === 'xlsx') icon = iconForFileType.xlsx;else if (element.extension === 'doc' || element.extension === 'docx') icon = iconForFileType.doc;else if (element.extension === 'jpg' || element.extension === 'jpeg' || element.extension === 'png') icon = iconForFileType.jpeg;else if (element.extension === 'pdf') icon = iconForFileType.pdf;else if (element.extension === '') icon = iconForFileType.folder;else icon = iconForFileType.file;
+      _tr += `
+            <tr>
+                <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
+                <td data-label="Name">${element.name}</td>
+                <td data-label="Modified" class="td-second">${element.modifiedAt}</td>
+                <td data-label="Modified By" class="td-second"> ${element.modifiedBy}</td>
+                <td class="hidden-style"></td>
+            </tr>
+                `;
+    }
+
+    tbody.innerHTML = _tr;
+  }
+
+  upload(file) {
+    this.data.push(file);
+    localStorage.setItem("fileListData", JSON.stringify(this.data));
+    this.showListForTable();
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/scripts/models/file.ts":
+/*!************************************!*\
+  !*** ./src/scripts/models/file.ts ***!
+  \************************************/
+/*! exports provided: File */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "File", function() { return File; });
+class File {
+  constructor(id, name, extension, createAt, createBy, modifiedAt, modifiedBy) {
+    this.id = id;
+    this.name = name;
+    this.extension = extension;
+    this.createAt = createAt;
+    this.createBy = createBy;
+    this.modifiedAt = modifiedAt;
+    this.modifiedBy = modifiedBy;
+  }
+
+  static update(newFile) {// let a = localStorage.getItem("fileUpload") ? JSON.parse(localStorage.getItem("fileUpload")) : [];
+    // a
+    // localStorage.setItem("fileUpload", a)
+    // console.log("Save thanh cong")
+  }
+
+  create() {
+    throw new Error('Method not implemented.');
+  }
+
+  read() {
+    throw new Error('Method not implemented.');
+  }
+
+  update() {
+    throw new Error('Method not implemented.');
+  }
+
+  delete() {
+    throw new Error('Method not implemented.');
+  }
+
+}
+
+/***/ }),
+
 /***/ "./src/scripts/pages/home-page.ts":
 /*!****************************************!*\
   !*** ./src/scripts/pages/home-page.ts ***!
@@ -194,19 +315,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_helper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/_helper */ "./src/scripts/utilities/_helper.ts");
 /* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_grid */ "./src/scripts/components/_grid.ts");
 /* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/_forms */ "./src/scripts/components/_forms.ts");
+/* harmony import */ var _models_FileAndFolderList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/FileAndFolderList */ "./src/scripts/models/FileAndFolderList.ts");
+
 
 
 
 
 Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
-  Object(_components_grid__WEBPACK_IMPORTED_MODULE_1__["default"])(); //upload form
+  Object(_components_grid__WEBPACK_IMPORTED_MODULE_1__["default"])(); //listManage
+
+  let a = new _models_FileAndFolderList__WEBPACK_IMPORTED_MODULE_3__["FileAndFolderList"]();
+  a.showListForTable(); //upload form
 
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeCreateForm"])();
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showCreateForm"])(); //upload form
 
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeUploadForm"])();
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showUploadForm"])();
-  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["uploadFile"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["uploadFile"])(a);
 });
 
 /***/ }),

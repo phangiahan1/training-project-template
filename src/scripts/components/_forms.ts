@@ -1,5 +1,6 @@
 //create form
 import { File } from '../models/file';
+import { FileAndFolderList} from '../models/FileAndFolderList'
 
 export function showCreateForm() {
     const createBtn = document.getElementById("createFormBtn");
@@ -46,7 +47,7 @@ function getExtension(fileName: string) {
     const [file, extesion] = fileName.split(".");
     return extesion;
 }
-export function uploadFile() {
+export function uploadFile(a: FileAndFolderList) {
     const uploadBtn = document.getElementById("uploadFormButton");
 
     let dateTime = new Date()
@@ -58,11 +59,11 @@ export function uploadFile() {
                 console.log(uploadFileName);
                 for (let index = 0; index < uploadFileName.length; index++) {
                     const element = uploadFileName[index];
-                    //const newFile = new File(0, element.name, getExtension(element.name), dateTime, "Admin", , "Admin")
+                    const newFile = new File(0, element.name, getExtension(element.name), dateTime, "Admin", dateTime, "Admin")
+                    a.upload(newFile)
+                    document.getElementById('formUploadFolder')!.style.display = 'none';
                 }
             }
         }, true)
     }
-
-
 }

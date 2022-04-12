@@ -111,6 +111,12 @@ body {
 .menu ul li a .fa-file-excel {
   color: green;
 }
+.menu ul li a .fa-file-pdf {
+  color: orangered;
+}
+.menu ul li a .fa-file-word {
+  color: blue;
+}
 .menu ul li a .fa-chevron-down {
   color: #6c757d;
   font-size: 10px;
@@ -356,6 +362,12 @@ body {
 }
 #documentTable td .fa-file-excel {
   color: green;
+}
+#documentTable td .fa-file-pdf {
+  color: orangered;
+}
+#documentTable td .fa-file-word {
+  color: blue;
 }
 #documentTable td .fa-chevron-down {
   color: #6c757d;

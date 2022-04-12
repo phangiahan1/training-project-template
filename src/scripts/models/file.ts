@@ -16,10 +16,12 @@ export class File implements FileFormatter {
         this.modifiedAt = modifiedAt;
         this.modifiedBy = modifiedBy;
     }
-    upload(file: File): boolean {
-        localStorage.setItem("fileUpload", JSON.stringify(file))
-        console.log("Save thanh cong")
-        return true
+
+    static update(newFile: File) {
+        // let a = localStorage.getItem("fileUpload") ? JSON.parse(localStorage.getItem("fileUpload")) : [];
+        // a
+        // localStorage.setItem("fileUpload", a)
+        // console.log("Save thanh cong")
     }
 
     create(): boolean {
