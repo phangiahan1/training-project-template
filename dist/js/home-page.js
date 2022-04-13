@@ -929,24 +929,32 @@ function version(uuid) {
 /*!******************************************!*\
   !*** ./src/scripts/components/_forms.ts ***!
   \******************************************/
-/*! exports provided: showCreateForm, closeCreateForm, showUploadForm, closeUploadForm, uploadFile */
+/*! exports provided: showCreateForm, closeCreateForm, createFile, showUploadForm, closeUploadForm, uploadFile, showUpdateForm, closeUpdateForm, updateFile, deleteFile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showCreateForm", function() { return showCreateForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeCreateForm", function() { return closeCreateForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFile", function() { return createFile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUploadForm", function() { return showUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeUploadForm", function() { return closeUploadForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return uploadFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showUpdateForm", function() { return showUpdateForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeUpdateForm", function() { return closeUpdateForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFile", function() { return updateFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFile", function() { return deleteFile; });
 /* harmony import */ var _models_file__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/file */ "./src/scripts/models/file.ts");
+/* harmony import */ var _models_folder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/folder */ "./src/scripts/models/folder.ts");
 //create form
+
 
 
 const {
   v4: uuidv4
 } = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
 
+let idRow;
 function showCreateForm() {
   const createBtn = document.getElementById("createFormBtn");
 
@@ -963,6 +971,24 @@ function closeCreateForm() {
   if (createBtnClose) {
     createBtnClose.addEventListener("click", function () {
       document.getElementById('formCreateFolder').style.display = 'none';
+    }, true);
+  }
+}
+function createFile(a) {
+  const createBtn = document.getElementById("createFormButton");
+  let dateTime = new Date();
+
+  if (createBtn) {
+    createBtn.addEventListener("click", function () {
+      let uploadFileName = document.getElementById('createFormInput');
+
+      if (uploadFileName) {
+        console.log(uploadFileName);
+        const element = uploadFileName;
+        const newFile = new _models_folder__WEBPACK_IMPORTED_MODULE_1__["Folder"](uuidv4(), uploadFileName.value, '', dateTime, "Admin", dateTime, "Admin");
+        a.upload(newFile);
+        document.getElementById('formCreateFolder').style.display = 'none';
+      }
     }, true);
   }
 } //upload form
@@ -1010,6 +1036,57 @@ function uploadFile(a) {
           document.getElementById('formUploadFolder').style.display = 'none';
         }
       }
+    }, true);
+  }
+} //update form
+
+function showUpdateForm() {
+  const updateBtn = document.getElementById("editFileBtn");
+
+  if (updateBtn) {
+    updateBtn.addEventListener("click", function (e) {
+      var tmp;
+      tmp = e.target;
+      tmp = tmp.parentNode.parentNode.id;
+      console.log(tmp);
+      var rowId = tmp;
+      idRow = rowId;
+      var data = document.getElementById(rowId).querySelectorAll(".row-data");
+      var nameFile = data[0].innerHTML.split("</i>");
+      var name = nameFile[1].trim().split(".");
+      document.getElementById('formUpdateFolder').style.display = 'block';
+      document.getElementById('updateFormInput').value = name[0];
+    }, true);
+  }
+}
+function closeUpdateForm() {
+  const uploadBtn = document.getElementById("closeUpdateFormBtn");
+
+  if (uploadBtn) {
+    uploadBtn.addEventListener("click", function () {
+      document.getElementById('formUpdateFolder').style.display = 'none';
+    }, true);
+  }
+}
+function updateFile(a) {
+  const updateBtn = document.getElementById("updateFormButton");
+  const input = document.querySelector("#updateFormInput");
+  let dateTime = new Date();
+
+  if (updateBtn) {
+    updateBtn.addEventListener("click", function () {
+      if (input) console.log(input.value); //document.getElementById('formUpdateFolder')!.style.display = 'none';
+    });
+  }
+}
+function deleteFile(a) {
+  const deleteBtn = document.getElementById("deleteFormButton");
+  let dateTime = new Date();
+
+  if (deleteBtn) {
+    deleteBtn.addEventListener("click", function () {
+      if (idRow) a.delete(idRow);
+      document.getElementById('formUpdateFolder').style.display = 'none';
     }, true);
   }
 }
@@ -1072,29 +1149,37 @@ class FileAndFolderList {
   showListForTable() {
     let tbody = document.getElementById('tbodyDataFileList');
     let _tr = '';
-
-    for (const element of this.data) {
+    this.data.forEach(element => {
       let icon;
       if (element.extension === 'xlsx') icon = iconForFileType.xlsx;else if (element.extension === 'doc' || element.extension === 'docx') icon = iconForFileType.doc;else if (element.extension === 'jpg' || element.extension === 'jpeg' || element.extension === 'png') icon = iconForFileType.jpeg;else if (element.extension === 'pdf') icon = iconForFileType.pdf;else if (element.extension === '') icon = iconForFileType.folder;else icon = iconForFileType.file;
       _tr += `
-            <tr>
+            <tr id="${element.id}">
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name" id="editFileForm"><i class="fa-solid fa-ellipsis-vertical fa-2xs" style="color: gray;"></i> ${element.name} </td>
-                <td data-label="Modified At" class="td-second">${element.modifiedAt}</td>
-                <td data-label="Modified By" class="td-second"> ${element.modifiedBy}</td>
-                <td data-label="Created At" class="td-second">${element.createAt}</td>
-                <td data-label="Created By" class="td-second"> ${element.createBy}</td>
+                <td data-label="Name" class="row-data"><i class="fa-solid fa-ellipsis-vertical fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
+                <td data-label="Modified At" class="row-data td-second">${element.modifiedAt}</td>
+                <td data-label="Modified By" class="row-data td-second"> ${element.modifiedBy}</td>
+                <td data-label="Created At" class="row-data td-second">${element.createAt}</td>
+                <td data-label="Created By" class="row-data td-second"> ${element.createBy}</td>
                 <td class="hidden-style"></td>
             </tr>
                 `;
-    }
-
+    });
     tbody.innerHTML = _tr;
   }
 
   upload(file) {
     this.data.push(file);
     localStorage.setItem("fileListData", JSON.stringify(this.data));
+    this.showListForTable();
+  }
+
+  delete(id) {
+    let index = this.data.findIndex(function (obj) {
+      return obj.id == id;
+    });
+    this.data.splice(index, 1);
+    let JSONdata = JSON.stringify(this.data);
+    localStorage.setItem('fileListData', JSONdata);
     this.showListForTable();
   }
 
@@ -1127,6 +1212,31 @@ class File {
 
 /***/ }),
 
+/***/ "./src/scripts/models/folder.ts":
+/*!**************************************!*\
+  !*** ./src/scripts/models/folder.ts ***!
+  \**************************************/
+/*! exports provided: Folder */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Folder", function() { return Folder; });
+class Folder {
+  constructor(id, name, extension, createAt, createBy, modifiedAt, modifiedBy) {
+    this.id = id;
+    this.name = name;
+    this.extension = extension;
+    this.createAt = createAt;
+    this.createBy = createBy;
+    this.modifiedAt = modifiedAt;
+    this.modifiedBy = modifiedBy;
+  }
+
+}
+
+/***/ }),
+
 /***/ "./src/scripts/pages/home-page.ts":
 /*!****************************************!*\
   !*** ./src/scripts/pages/home-page.ts ***!
@@ -1145,18 +1255,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 Object(_utilities_helper__WEBPACK_IMPORTED_MODULE_0__["default"])(() => {
   Object(_components_grid__WEBPACK_IMPORTED_MODULE_1__["default"])(); //listManage
 
   let a = new _models_FileAndFolderList__WEBPACK_IMPORTED_MODULE_3__["FileAndFolderList"]();
-  a.showListForTable(); //upload form
+  a.showListForTable(); //create form
 
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeCreateForm"])();
-  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showCreateForm"])(); //upload form
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showCreateForm"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["createFile"])(a); //upload form
 
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeUploadForm"])();
   Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showUploadForm"])();
-  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["uploadFile"])(a);
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["uploadFile"])(a); //update form
+
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["closeUpdateForm"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["showUpdateForm"])();
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["updateFile"])(a);
+  Object(_components_forms__WEBPACK_IMPORTED_MODULE_2__["deleteFile"])(a);
 });
 
 /***/ }),

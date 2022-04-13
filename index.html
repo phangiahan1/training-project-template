@@ -62,7 +62,7 @@
     <form id="formCreateFolder">
         <div class="inputForm">
             <div class="inputForm-title">
-                Create a file
+                Create a folder
                 <i class="fa-solid fa-xmark" id="closeCreateFormBtn"></i>
             </div>
 
@@ -89,6 +89,23 @@
             </div>
             <div class="uploadForm-button">
                 <input id="uploadFormButton" type="submit" value="Upload" class=" uploadButton">
+            </div>
+        </div>
+    </form>
+
+    <form id="formUpdateFolder">
+        <div class="updateForm">
+            <div class="updateForm-title">
+                Enter new name's file
+                <i class="fa-solid fa-xmark" id="closeUpdateFormBtn"></i>
+            </div>
+            <div class="updateForm-body">
+                <input required id="updateFormInput" type="text" class=" fullWidthInput"
+                    onkeyup="validateCreateForm2()">
+            </div>
+            <div class="updateForm-button">
+                <input id="updateFormButton" type="submit" value="Update" class=" updateButton">
+                <input id="deleteFormButton" type="submit" value="Delete" class=" deleteButton">
             </div>
         </div>
     </form>
@@ -143,7 +160,7 @@
                 <td class="hidden-style"></td>
             </tr>-->
         </tbody>
-    </table>    
+    </table>
     <script type="text/javascript" src="./dist/js/home-page.js"></script>
     <script>
         function validateCreateForm() {
@@ -159,6 +176,21 @@
             } else {
                 (document.getElementById('uploadFormButton')).disabled = true;
             };
+        }
+        function validateCreateForm2() {
+            if (document.getElementById('updateFormInput').value !== '') {
+                (document.getElementById('updateFormButton')).disabled = false;
+            } else {
+                (document.getElementById('updateFormButton')).disabled = true;
+            };
+        }
+        function show() {
+            var rowId = event.target.parentNode.parentNode.id;
+            var data = document.getElementById(rowId).querySelectorAll(".row-data");
+            var nameFile = data[0].innerHTML.split("</i>")
+            var name = nameFile[1].trim().split(".")
+            document.getElementById('formUpdateFolder').style.display = 'block'
+            document.getElementById('updateFormInput').value = name[0]
         }
     </script>
 </body>

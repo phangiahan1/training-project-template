@@ -29,7 +29,7 @@ $purple-800: #560048 !default;
 $purple-900: #38002E !default;
 // scss-docs-end purple-color-variables
 
-// scss-docs-start purple-color-variables
+// scss-docs-start blue-color-variables
 $blue-100: #CAF0F8 !default;
 $blue-200: #ADE8F4 !default;
 $blue-300: #90E0EF !default;
@@ -39,7 +39,19 @@ $blue-600: #0096C7 !default;
 $blue-700: #0077B6 !default;
 $blue-800: #023E8A !default;
 $blue-900: #03045E !default;
-// scss-docs-end purple-color-variables
+// scss-docs-end blue-color-variables
+
+// scss-docs-start red-color-variables
+$red-100: #FF0000 !default;
+$red-200: #F50F0F !default;
+$red-300: #EB1D1D !default;
+$red-400: #D30000 !default;
+$red-500: #B50000 !default;
+$red-600: #980000 !default;
+$red-700: #740000 !default;
+$red-800: #4F0000 !default;
+$red-900: #2B0000 !default;
+// scss-docs-end red-color-variables
 
 $border-radius-main: 3px;
 
