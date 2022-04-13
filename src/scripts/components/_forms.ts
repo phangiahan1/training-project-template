@@ -92,23 +92,33 @@ export function uploadFile(a: FileAndFolderList) {
 
 //update form
 export function showUpdateForm() {
-    let updateBtn = document.getElementById("editFileBtn");
-    if (updateBtn) {
-        updateBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            var tmp: any
-            tmp = e.target
-            tmp = tmp.parentNode.parentNode.id
-            console.log(tmp);
-            var rowId = tmp;
-            idRow = rowId;
-            var data = document.getElementById(rowId)!.querySelectorAll(".row-data");
-            var nameFile = data[0].innerHTML.split("</i>")
-            var name = nameFile[1].trim().split(".")
+    const documents = new FileAndFolderList();
+    documents.data.forEach((item, index) => {
+        let updateBtn = document.getElementById(`editFileBtn-${index}`);
+        updateBtn!.addEventListener("click", () => {
+            idRow = item.id
             document.getElementById('formUpdateFolder')!.style.display = 'block';
-            (document.getElementById('updateFormInput') as HTMLInputElement).value = name[0]
-        }, true)
-    }
+            let tmp = item.name.split(".");
+            (document.getElementById('updateFormInput') as HTMLInputElement).value = tmp[0]
+        });
+    });
+    // let updateBtn = document.getElementById(`editFileBtn-${}`);
+    // if (updateBtn) {
+    //     updateBtn.addEventListener("click", function (e) {
+    //         e.preventDefault();
+    //         var tmp: any
+    //         tmp = e.target
+    //         tmp = tmp.parentNode.parentNode.id
+    //         console.log(tmp);
+    //         var rowId = tmp;
+    //         idRow = rowId;
+    //         var data = document.getElementById(rowId)!.querySelectorAll(".row-data");
+    //         var nameFile = data[0].innerHTML.split("</i>")
+    //         var name = nameFile[1].trim().split(".")
+    //         document.getElementById('formUpdateFolder')!.style.display = 'block';
+    //         (document.getElementById('updateFormInput') as HTMLInputElement).value = name[0]
+    //     }, true)
+    // }
 }
 
 export function closeUpdateForm() {
@@ -130,7 +140,7 @@ export function updateFile(a: FileAndFolderList) {
             e.preventDefault();
             if (input && idRow)
                 a.edit(idRow, (input as HTMLInputElement).value)
-                window.location.reload();
+            window.location.reload();
             document.getElementById('formUpdateFolder')!.style.display = 'none';
         }, true)
     }
@@ -138,7 +148,6 @@ export function updateFile(a: FileAndFolderList) {
 
 export function deleteFile(a: FileAndFolderList) {
     let deleteBtn = document.getElementById("deleteFormButton");
-    let dateTime = new Date()
     if (deleteBtn) {
         deleteBtn.addEventListener("click", function (e) {
             e.preventDefault();

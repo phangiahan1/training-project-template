@@ -25,7 +25,7 @@ export class FileAndFolderList {
     public showListForTable() {
         let tbody: any = document.getElementById('tbodyDataFileList');
         let _tr = ''
-
+        let index = 0;
         this.data.forEach(element => {
             let icon
             if (element.extension === 'xlsx') icon = iconForFileType.xlsx
@@ -37,7 +37,7 @@ export class FileAndFolderList {
             _tr += `
             <tr id="${element.id}">
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
+                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn-${index}" style="color: gray;"></i> ${element.name} </td>
                 <td data-label="Modified At" class="row-data td-second">${element.modifiedAt}</td>
                 <td data-label="Modified By" class="row-data td-second"> ${element.modifiedBy}</td>
                 <td data-label="Created At" class="row-data td-second">${element.createAt}</td>
@@ -45,6 +45,7 @@ export class FileAndFolderList {
                 <td class="hidden-style"></td>
             </tr>
                 `
+            index++;
         });
         tbody.innerHTML = _tr;
     }
@@ -71,7 +72,7 @@ export class FileAndFolderList {
             return obj.id == id;
         })
         if (this.data[index].extension) {
-            this.data[index].name = name+'.'+this.data[index].extension;
+            this.data[index].name = name + '.' + this.data[index].extension;
         } else
             this.data[index].name
 

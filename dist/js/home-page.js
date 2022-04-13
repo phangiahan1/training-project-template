@@ -945,8 +945,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateFile", function() { return updateFile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteFile", function() { return deleteFile; });
 /* harmony import */ var _models_file__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/file */ "./src/scripts/models/file.ts");
-/* harmony import */ var _models_folder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/folder */ "./src/scripts/models/folder.ts");
+/* harmony import */ var _models_FileAndFolderList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/FileAndFolderList */ "./src/scripts/models/FileAndFolderList.ts");
+/* harmony import */ var _models_folder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/folder */ "./src/scripts/models/folder.ts");
 //create form
+
 
 
 
@@ -988,7 +990,7 @@ function createFile(a) {
       if (uploadFileName) {
         console.log(uploadFileName);
         const element = uploadFileName;
-        const newFile = new _models_folder__WEBPACK_IMPORTED_MODULE_1__["Folder"](uuidv4(), uploadFileName.value, '', dateTime, "Admin", dateTime, "Admin");
+        const newFile = new _models_folder__WEBPACK_IMPORTED_MODULE_2__["Folder"](uuidv4(), uploadFileName.value, '', dateTime, "Admin", dateTime, "Admin");
         a.upload(newFile);
         document.getElementById('formCreateFolder').style.display = 'none';
       }
@@ -1047,24 +1049,32 @@ function uploadFile(a) {
 } //update form
 
 function showUpdateForm() {
-  let updateBtn = document.getElementById("editFileBtn");
-
-  if (updateBtn) {
-    updateBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      var tmp;
-      tmp = e.target;
-      tmp = tmp.parentNode.parentNode.id;
-      console.log(tmp);
-      var rowId = tmp;
-      idRow = rowId;
-      var data = document.getElementById(rowId).querySelectorAll(".row-data");
-      var nameFile = data[0].innerHTML.split("</i>");
-      var name = nameFile[1].trim().split(".");
+  const documents = new _models_FileAndFolderList__WEBPACK_IMPORTED_MODULE_1__["FileAndFolderList"]();
+  documents.data.forEach((item, index) => {
+    let updateBtn = document.getElementById(`editFileBtn-${index}`);
+    updateBtn.addEventListener("click", () => {
+      idRow = item.id;
       document.getElementById('formUpdateFolder').style.display = 'block';
-      document.getElementById('updateFormInput').value = name[0];
-    }, true);
-  }
+      let tmp = item.name.split(".");
+      document.getElementById('updateFormInput').value = tmp[0];
+    });
+  }); // let updateBtn = document.getElementById(`editFileBtn-${}`);
+  // if (updateBtn) {
+  //     updateBtn.addEventListener("click", function (e) {
+  //         e.preventDefault();
+  //         var tmp: any
+  //         tmp = e.target
+  //         tmp = tmp.parentNode.parentNode.id
+  //         console.log(tmp);
+  //         var rowId = tmp;
+  //         idRow = rowId;
+  //         var data = document.getElementById(rowId)!.querySelectorAll(".row-data");
+  //         var nameFile = data[0].innerHTML.split("</i>")
+  //         var name = nameFile[1].trim().split(".")
+  //         document.getElementById('formUpdateFolder')!.style.display = 'block';
+  //         (document.getElementById('updateFormInput') as HTMLInputElement).value = name[0]
+  //     }, true)
+  // }
 }
 function closeUpdateForm() {
   const uploadBtn = document.getElementById("closeUpdateFormBtn");
@@ -1092,7 +1102,6 @@ function updateFile(a) {
 }
 function deleteFile(a) {
   let deleteBtn = document.getElementById("deleteFormButton");
-  let dateTime = new Date();
 
   if (deleteBtn) {
     deleteBtn.addEventListener("click", function (e) {
@@ -1162,13 +1171,14 @@ class FileAndFolderList {
   showListForTable() {
     let tbody = document.getElementById('tbodyDataFileList');
     let _tr = '';
+    let index = 0;
     this.data.forEach(element => {
       let icon;
       if (element.extension === 'xlsx') icon = iconForFileType.xlsx;else if (element.extension === 'doc' || element.extension === 'docx') icon = iconForFileType.doc;else if (element.extension === 'jpg' || element.extension === 'jpeg' || element.extension === 'png') icon = iconForFileType.jpeg;else if (element.extension === 'pdf') icon = iconForFileType.pdf;else if (element.extension === '') icon = iconForFileType.folder;else icon = iconForFileType.file;
       _tr += `
             <tr id="${element.id}">
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
+                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn-${index}" style="color: gray;"></i> ${element.name} </td>
                 <td data-label="Modified At" class="row-data td-second">${element.modifiedAt}</td>
                 <td data-label="Modified By" class="row-data td-second"> ${element.modifiedBy}</td>
                 <td data-label="Created At" class="row-data td-second">${element.createAt}</td>
@@ -1176,6 +1186,7 @@ class FileAndFolderList {
                 <td class="hidden-style"></td>
             </tr>
                 `;
+      index++;
     });
     tbody.innerHTML = _tr;
   }
