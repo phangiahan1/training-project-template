@@ -1076,7 +1076,7 @@ function updateFile(a) {
   if (updateBtn) {
     updateBtn.addEventListener("click", function () {
       if (input && idRow) a.edit(idRow, input.value);
-      location.reload();
+      window.location.reload();
       document.getElementById('formUpdateFolder').style.display = 'none';
     }, true);
   }
@@ -1088,7 +1088,7 @@ function deleteFile(a) {
   if (deleteBtn) {
     deleteBtn.addEventListener("click", function () {
       if (idRow) a.delete(idRow);
-      location.reload();
+      window.location.reload();
       document.getElementById('formUpdateFolder').style.display = 'none';
     }, true);
   }

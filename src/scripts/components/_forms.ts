@@ -122,7 +122,7 @@ export function updateFile(a: FileAndFolderList) {
         updateBtn.addEventListener("click", function () {
             if (input && idRow)
                 a.edit(idRow, (input as HTMLInputElement).value)
-            location.reload();
+                window.location.reload();
             document.getElementById('formUpdateFolder')!.style.display = 'none';
         }, true)
     }
@@ -135,7 +135,7 @@ export function deleteFile(a: FileAndFolderList) {
         deleteBtn.addEventListener("click", function () {
             if (idRow)
                 a.delete(idRow)
-            location.reload();
+            window.location.reload();
             document.getElementById('formUpdateFolder')!.style.display = 'none';
         }, true)
     }

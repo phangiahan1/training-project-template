@@ -45,7 +45,7 @@ export class FileAndFolderList {
                 <td class="hidden-style"></td>
             </tr>
                 `
-        });
+        });        
         tbody.innerHTML = _tr;
     }
 
