@@ -3,6 +3,7 @@ import renderGrid from '../components/_grid';
 import { showCreateForm, closeCreateForm } from '../components/_forms'
 import { showUploadForm, closeUploadForm, uploadFile } from '../components/_forms';
 import { FileAndFolderList } from '../models/FileAndFolderList'
+
 ready(() => {
   renderGrid();
 
@@ -18,7 +19,5 @@ ready(() => {
   closeUploadForm();
   showUploadForm();
   uploadFile(a);
-
-
 });
 

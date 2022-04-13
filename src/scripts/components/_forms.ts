@@ -1,6 +1,7 @@
 //create form
 import { File } from '../models/file';
 import { FileAndFolderList} from '../models/FileAndFolderList'
+const { v4: uuidv4 } = require('uuid');
 
 export function showCreateForm() {
     const createBtn = document.getElementById("createFormBtn");
@@ -20,8 +21,6 @@ export function closeCreateForm() {
         }, true)
     }
 }
-
-
 
 //upload form
 export function showUploadForm() {
@@ -59,7 +58,7 @@ export function uploadFile(a: FileAndFolderList) {
                 console.log(uploadFileName);
                 for (let index = 0; index < uploadFileName.length; index++) {
                     const element = uploadFileName[index];
-                    const newFile = new File(0, element.name, getExtension(element.name), dateTime, "Admin", dateTime, "Admin")
+                    const newFile = new File(uuidv4() as string, element.name, getExtension(element.name), dateTime, "Admin", dateTime, "Admin")
                     a.upload(newFile)
                     document.getElementById('formUploadFolder')!.style.display = 'none';
                 }
