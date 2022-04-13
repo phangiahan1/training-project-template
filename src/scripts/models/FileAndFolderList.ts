@@ -37,7 +37,7 @@ export class FileAndFolderList {
             _tr += `
             <tr id="${element.id}">
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name" class="row-data"><i class="fa-solid fa-ellipsis-vertical fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
+                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
                 <td data-label="Modified At" class="row-data td-second">${element.modifiedAt}</td>
                 <td data-label="Modified By" class="row-data td-second"> ${element.modifiedBy}</td>
                 <td data-label="Created At" class="row-data td-second">${element.createAt}</td>
@@ -45,7 +45,7 @@ export class FileAndFolderList {
                 <td class="hidden-style"></td>
             </tr>
                 `
-        });        
+        });
         tbody.innerHTML = _tr;
     }
 
@@ -56,7 +56,7 @@ export class FileAndFolderList {
     }
 
     public delete(id: string): void {
-        let index = this.data.findIndex(function (obj){
+        let index = this.data.findIndex(function (obj) {
             return obj.id == id;
         })
 
@@ -67,11 +67,17 @@ export class FileAndFolderList {
     }
 
     public edit(id: string, name: string): void {
-        let index = this.data.findIndex(function (obj){
+        let index = this.data.findIndex(function (obj) {
             return obj.id == id;
         })
-        this.data[0].name = name;
-        
+        if (this.data[index].extension) {
+            this.data[index].name = name+'.'+this.data[index].extension;
+        } else
+            this.data[index].name
+
+        this.data[index].modifiedBy = 'Gia Han'
+        this.data[index].modifiedAt = new Date();
+
         // this.data.splice(index, 1)
         let JSONdata = JSON.stringify(this.data);
         localStorage.setItem('fileListData', JSONdata)

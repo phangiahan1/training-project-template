@@ -8,7 +8,8 @@ let idRow: string;
 export function showCreateForm() {
     const createBtn = document.getElementById("createFormBtn");
     if (createBtn) {
-        createBtn.addEventListener("click", function () {
+        createBtn.addEventListener("click", function (e) {
+            e.preventDefault()
             document.getElementById('formCreateFolder')!.style.display = 'block';
             (document.getElementById('createFormButton') as HTMLButtonElement).disabled = true;
         }, true)
@@ -18,7 +19,8 @@ export function showCreateForm() {
 export function closeCreateForm() {
     const createBtnClose = document.getElementById("closeCreateFormBtn");
     if (createBtnClose) {
-        createBtnClose.addEventListener("click", function () {
+        createBtnClose.addEventListener("click", function (e) {
+            e.preventDefault
             document.getElementById('formCreateFolder')!.style.display = 'none';
         }, true)
     }
@@ -28,7 +30,8 @@ export function createFile(a: FileAndFolderList) {
     const createBtn = document.getElementById("createFormButton");
     let dateTime = new Date()
     if (createBtn) {
-        createBtn.addEventListener("click", function () {
+        createBtn.addEventListener("click", function (e) {
+            e.preventDefault()
             let uploadFileName = (document.getElementById('createFormInput') as HTMLInputElement);
             if (uploadFileName) {
                 console.log(uploadFileName);
@@ -45,7 +48,8 @@ export function createFile(a: FileAndFolderList) {
 export function showUploadForm() {
     const uploadBtn = document.getElementById("uploadFormBtn");
     if (uploadBtn) {
-        uploadBtn.addEventListener("click", function () {
+        uploadBtn.addEventListener("click", function (e) {
+            e.preventDefault()
             document.getElementById('formUploadFolder')!.style.display = 'block';
             (document.getElementById('uploadFormButton') as HTMLButtonElement).disabled = true;
         }, true)
@@ -55,7 +59,8 @@ export function showUploadForm() {
 export function closeUploadForm() {
     const uploadBtn = document.getElementById("closeUploadFormBtn");
     if (uploadBtn) {
-        uploadBtn.addEventListener("click", function () {
+        uploadBtn.addEventListener("click", function (e) {
+            e.preventDefault()
             document.getElementById('formUploadFolder')!.style.display = 'none';
         }, true)
     }
@@ -69,7 +74,8 @@ export function uploadFile(a: FileAndFolderList) {
     const uploadBtn = document.getElementById("uploadFormButton");
     let dateTime = new Date()
     if (uploadBtn) {
-        uploadBtn.addEventListener("click", function () {
+        uploadBtn.addEventListener("click", function (e) {
+            e.preventDefault()
             let uploadFileName = (document.getElementById('uploadFormInput') as HTMLInputElement).files;
             if (uploadFileName) {
                 console.log(uploadFileName);
@@ -86,14 +92,14 @@ export function uploadFile(a: FileAndFolderList) {
 
 //update form
 export function showUpdateForm() {
-    const updateBtn = document.getElementById("editFileBtn");
+    let updateBtn = document.getElementById("editFileBtn");
     if (updateBtn) {
         updateBtn.addEventListener("click", function (e) {
+            e.preventDefault();
             var tmp: any
             tmp = e.target
             tmp = tmp.parentNode.parentNode.id
             console.log(tmp);
-
             var rowId = tmp;
             idRow = rowId;
             var data = document.getElementById(rowId)!.querySelectorAll(".row-data");
@@ -108,18 +114,20 @@ export function showUpdateForm() {
 export function closeUpdateForm() {
     const uploadBtn = document.getElementById("closeUpdateFormBtn");
     if (uploadBtn) {
-        uploadBtn.addEventListener("click", function () {
+        uploadBtn.addEventListener("click", function (e) {
+            e.preventDefault()
             document.getElementById('formUpdateFolder')!.style.display = 'none';
         }, true)
     }
 }
 
 export function updateFile(a: FileAndFolderList) {
-    const updateBtn = document.getElementById("updateFormButton");
+    let updateBtn = document.getElementById("updateFormButton");
     const input = document.querySelector("#updateFormInput");
     let dateTime = new Date()
     if (updateBtn) {
-        updateBtn.addEventListener("click", function () {
+        updateBtn.addEventListener("click", function (e) {
+            e.preventDefault();
             if (input && idRow)
                 a.edit(idRow, (input as HTMLInputElement).value)
                 window.location.reload();
@@ -129,10 +137,11 @@ export function updateFile(a: FileAndFolderList) {
 }
 
 export function deleteFile(a: FileAndFolderList) {
-    const deleteBtn = document.getElementById("deleteFormButton");
+    let deleteBtn = document.getElementById("deleteFormButton");
     let dateTime = new Date()
     if (deleteBtn) {
-        deleteBtn.addEventListener("click", function () {
+        deleteBtn.addEventListener("click", function (e) {
+            e.preventDefault();
             if (idRow)
                 a.delete(idRow)
             window.location.reload();

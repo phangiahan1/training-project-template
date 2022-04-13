@@ -959,7 +959,8 @@ function showCreateForm() {
   const createBtn = document.getElementById("createFormBtn");
 
   if (createBtn) {
-    createBtn.addEventListener("click", function () {
+    createBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       document.getElementById('formCreateFolder').style.display = 'block';
       document.getElementById('createFormButton').disabled = true;
     }, true);
@@ -969,7 +970,8 @@ function closeCreateForm() {
   const createBtnClose = document.getElementById("closeCreateFormBtn");
 
   if (createBtnClose) {
-    createBtnClose.addEventListener("click", function () {
+    createBtnClose.addEventListener("click", function (e) {
+      e.preventDefault;
       document.getElementById('formCreateFolder').style.display = 'none';
     }, true);
   }
@@ -979,7 +981,8 @@ function createFile(a) {
   let dateTime = new Date();
 
   if (createBtn) {
-    createBtn.addEventListener("click", function () {
+    createBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       let uploadFileName = document.getElementById('createFormInput');
 
       if (uploadFileName) {
@@ -997,7 +1000,8 @@ function showUploadForm() {
   const uploadBtn = document.getElementById("uploadFormBtn");
 
   if (uploadBtn) {
-    uploadBtn.addEventListener("click", function () {
+    uploadBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       document.getElementById('formUploadFolder').style.display = 'block';
       document.getElementById('uploadFormButton').disabled = true;
     }, true);
@@ -1007,7 +1011,8 @@ function closeUploadForm() {
   const uploadBtn = document.getElementById("closeUploadFormBtn");
 
   if (uploadBtn) {
-    uploadBtn.addEventListener("click", function () {
+    uploadBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       document.getElementById('formUploadFolder').style.display = 'none';
     }, true);
   }
@@ -1023,7 +1028,8 @@ function uploadFile(a) {
   let dateTime = new Date();
 
   if (uploadBtn) {
-    uploadBtn.addEventListener("click", function () {
+    uploadBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       let uploadFileName = document.getElementById('uploadFormInput').files;
 
       if (uploadFileName) {
@@ -1041,10 +1047,11 @@ function uploadFile(a) {
 } //update form
 
 function showUpdateForm() {
-  const updateBtn = document.getElementById("editFileBtn");
+  let updateBtn = document.getElementById("editFileBtn");
 
   if (updateBtn) {
     updateBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       var tmp;
       tmp = e.target;
       tmp = tmp.parentNode.parentNode.id;
@@ -1063,18 +1070,20 @@ function closeUpdateForm() {
   const uploadBtn = document.getElementById("closeUpdateFormBtn");
 
   if (uploadBtn) {
-    uploadBtn.addEventListener("click", function () {
+    uploadBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       document.getElementById('formUpdateFolder').style.display = 'none';
     }, true);
   }
 }
 function updateFile(a) {
-  const updateBtn = document.getElementById("updateFormButton");
+  let updateBtn = document.getElementById("updateFormButton");
   const input = document.querySelector("#updateFormInput");
   let dateTime = new Date();
 
   if (updateBtn) {
-    updateBtn.addEventListener("click", function () {
+    updateBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       if (input && idRow) a.edit(idRow, input.value);
       window.location.reload();
       document.getElementById('formUpdateFolder').style.display = 'none';
@@ -1082,11 +1091,12 @@ function updateFile(a) {
   }
 }
 function deleteFile(a) {
-  const deleteBtn = document.getElementById("deleteFormButton");
+  let deleteBtn = document.getElementById("deleteFormButton");
   let dateTime = new Date();
 
   if (deleteBtn) {
-    deleteBtn.addEventListener("click", function () {
+    deleteBtn.addEventListener("click", function (e) {
+      e.preventDefault();
       if (idRow) a.delete(idRow);
       window.location.reload();
       document.getElementById('formUpdateFolder').style.display = 'none';
@@ -1158,7 +1168,7 @@ class FileAndFolderList {
       _tr += `
             <tr id="${element.id}">
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name" class="row-data"><i class="fa-solid fa-ellipsis-vertical fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
+                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn" style="color: gray;"></i> ${element.name} </td>
                 <td data-label="Modified At" class="row-data td-second">${element.modifiedAt}</td>
                 <td data-label="Modified By" class="row-data td-second"> ${element.modifiedBy}</td>
                 <td data-label="Created At" class="row-data td-second">${element.createAt}</td>
@@ -1190,7 +1200,13 @@ class FileAndFolderList {
     let index = this.data.findIndex(function (obj) {
       return obj.id == id;
     });
-    this.data[0].name = name; // this.data.splice(index, 1)
+
+    if (this.data[index].extension) {
+      this.data[index].name = name + '.' + this.data[index].extension;
+    } else this.data[index].name;
+
+    this.data[index].modifiedBy = 'Gia Han';
+    this.data[index].modifiedAt = new Date(); // this.data.splice(index, 1)
 
     let JSONdata = JSON.stringify(this.data);
     localStorage.setItem('fileListData', JSONdata);
