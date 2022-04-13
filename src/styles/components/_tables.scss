@@ -49,8 +49,9 @@
 .new-item {
     position: relative;
     font-size: $table-font-size-span-new;
-    display: table-caption;
-    left: -10px;
+    // display: table-caption;
+    display: none;
+    left: -8px;
 }
 
 @media screen and (max-width: 768px) {

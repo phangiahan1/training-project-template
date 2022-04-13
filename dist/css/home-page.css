@@ -474,8 +474,8 @@ body {
 .new-item {
   position: relative;
   font-size: 10px;
-  display: table-caption;
-  left: -10px;
+  display: none;
+  left: -8px;
 }
 
 @media screen and (max-width: 768px) {

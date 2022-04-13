@@ -1178,7 +1178,8 @@ class FileAndFolderList {
       _tr += `
             <tr id="${element.id}">
                 <td data-label="File Type"><i class="fa-solid fa-${icon}"></i></td>
-                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn-${index}" style="color: gray;"></i> ${element.name} </td>
+                <td data-label="Name" class="row-data"><i class="fa-solid fa-pen fa-2xs" id="editFileBtn-${index}" style="color: gray;"></i><span class="new-item"><i
+                class="fa-brands fa-yelp"></i></span> ${element.name} </td>
                 <td data-label="Modified At" class="row-data td-second">${element.modifiedAt}</td>
                 <td data-label="Modified By" class="row-data td-second"> ${element.modifiedBy}</td>
                 <td data-label="Created At" class="row-data td-second">${element.createAt}</td>
