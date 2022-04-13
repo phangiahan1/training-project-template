@@ -120,11 +120,11 @@ export function updateFile(a: FileAndFolderList) {
     let dateTime = new Date()
     if (updateBtn) {
         updateBtn.addEventListener("click", function () {
-            if (input)
-                console.log((input as HTMLInputElement).value);
-            //document.getElementById('formUpdateFolder')!.style.display = 'none';
-        }
-        )
+            if (input && idRow)
+                a.edit(idRow, (input as HTMLInputElement).value)
+            location.reload();
+            document.getElementById('formUpdateFolder')!.style.display = 'none';
+        }, true)
     }
 }
 
@@ -135,7 +135,8 @@ export function deleteFile(a: FileAndFolderList) {
         deleteBtn.addEventListener("click", function () {
             if (idRow)
                 a.delete(idRow)
+            location.reload();
             document.getElementById('formUpdateFolder')!.style.display = 'none';
-        },true)
+        }, true)
     }
 }

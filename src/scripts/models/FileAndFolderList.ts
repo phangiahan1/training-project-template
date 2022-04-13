@@ -65,4 +65,16 @@ export class FileAndFolderList {
         localStorage.setItem('fileListData', JSONdata)
         this.showListForTable();
     }
+
+    public edit(id: string, name: string): void {
+        let index = this.data.findIndex(function (obj){
+            return obj.id == id;
+        })
+        this.data[0].name = name;
+        
+        // this.data.splice(index, 1)
+        let JSONdata = JSON.stringify(this.data);
+        localStorage.setItem('fileListData', JSONdata)
+        this.showListForTable();
+    }
 } 

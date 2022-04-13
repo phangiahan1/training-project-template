@@ -1075,8 +1075,10 @@ function updateFile(a) {
 
   if (updateBtn) {
     updateBtn.addEventListener("click", function () {
-      if (input) console.log(input.value); //document.getElementById('formUpdateFolder')!.style.display = 'none';
-    });
+      if (input && idRow) a.edit(idRow, input.value);
+      location.reload();
+      document.getElementById('formUpdateFolder').style.display = 'none';
+    }, true);
   }
 }
 function deleteFile(a) {
@@ -1086,6 +1088,7 @@ function deleteFile(a) {
   if (deleteBtn) {
     deleteBtn.addEventListener("click", function () {
       if (idRow) a.delete(idRow);
+      location.reload();
       document.getElementById('formUpdateFolder').style.display = 'none';
     }, true);
   }
@@ -1178,6 +1181,17 @@ class FileAndFolderList {
       return obj.id == id;
     });
     this.data.splice(index, 1);
+    let JSONdata = JSON.stringify(this.data);
+    localStorage.setItem('fileListData', JSONdata);
+    this.showListForTable();
+  }
+
+  edit(id, name) {
+    let index = this.data.findIndex(function (obj) {
+      return obj.id == id;
+    });
+    this.data[0].name = name; // this.data.splice(index, 1)
+
     let JSONdata = JSON.stringify(this.data);
     localStorage.setItem('fileListData', JSONdata);
     this.showListForTable();
