@@ -1141,6 +1141,8 @@ const renderGrid = () => {// TODO: implement code to Render grid
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileAndFolderList", function() { return FileAndFolderList; });
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/_forms */ "./src/scripts/components/_forms.ts");
+
 var iconForFileType;
 
 (function (iconForFileType) {
@@ -1190,6 +1192,7 @@ class FileAndFolderList {
       index++;
     });
     tbody.innerHTML = _tr;
+    setTimeout(_components_forms__WEBPACK_IMPORTED_MODULE_0__["showUpdateForm"], 1);
   }
 
   upload(file) {

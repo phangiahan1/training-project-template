@@ -1,3 +1,4 @@
+import { showUpdateForm } from "../components/_forms";
 import { FileFormatter } from "../interfaces/FileFormat";
 
 enum iconForFileType {
@@ -49,6 +50,7 @@ export class FileAndFolderList {
             index++;
         });
         tbody.innerHTML = _tr;
+        setTimeout(showUpdateForm, 1)
     }
 
     public upload(file: FileFormatter): void {

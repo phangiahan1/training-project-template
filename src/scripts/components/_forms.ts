@@ -73,7 +73,7 @@ function getExtension(fileName: string) {
 export function uploadFile(a: FileAndFolderList) {
     const uploadBtn = document.getElementById("uploadFormButton");
     let dateTime = new Date()
-    if (uploadBtn) {
+     if (uploadBtn) {
         uploadBtn.addEventListener("click", function (e) {
             e.preventDefault()
             let uploadFileName = (document.getElementById('uploadFormInput') as HTMLInputElement).files;
