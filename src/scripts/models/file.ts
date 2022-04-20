@@ -1,6 +1,6 @@
 import { FileFormatter } from '../interfaces/FileFormat';
 export class File implements FileFormatter {
-    id: string;
+    FileId: string;
     name: string;
     extension: string;
     createAt: Date;
@@ -8,7 +8,7 @@ export class File implements FileFormatter {
     modifiedAt: Date;
     modifiedBy: string;
     constructor(id: string, name: string, extension: string, createAt: Date, createBy: string, modifiedAt: Date, modifiedBy: string) {
-        this.id = id;
+        this.FileId = id;
         this.name = name;
         this.extension = extension;
         this.createAt = createAt;

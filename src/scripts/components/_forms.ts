@@ -3,6 +3,7 @@ import { File } from '../models/file';
 import { FileAndFolderList } from '../models/FileAndFolderList'
 import { Folder } from '../models/folder';
 const { v4: uuidv4 } = require('uuid');
+const axios = require('axios').default;
 let idRow: string;
 
 export function showCreateForm() {
@@ -73,7 +74,7 @@ function getExtension(fileName: string) {
 export function uploadFile(a: FileAndFolderList) {
     const uploadBtn = document.getElementById("uploadFormButton");
     let dateTime = new Date()
-    if (uploadBtn) {
+     if (uploadBtn) {
         uploadBtn.addEventListener("click", function (e) {
             e.preventDefault()
             let uploadFileName = (document.getElementById('uploadFormInput') as HTMLInputElement).files;
@@ -96,7 +97,7 @@ export function showUpdateForm() {
     documents.data.forEach((item, index) => {
         let updateBtn = document.getElementById(`editFileBtn-${index}`);
         updateBtn!.addEventListener("click", () => {
-            idRow = item.id
+            idRow = item.FileId
             document.getElementById('formUpdateFolder')!.style.display = 'block';
             let tmp = item.name.split(".");
             (document.getElementById('updateFormInput') as HTMLInputElement).value = tmp[0]
