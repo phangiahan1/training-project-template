@@ -19,6 +19,18 @@ export class FileAndFolderList {
     }
     private setData(): Array<FileFormatter> {
         let dataInStorage = localStorage.getItem('fileListData')
+        axios.get('https://localhost:44331/api/Files')
+            .then(function (response: any) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error: any) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
         if (dataInStorage) {
             return JSON.parse(dataInStorage)
         }
@@ -58,16 +70,16 @@ export class FileAndFolderList {
     public upload(file: FileFormatter): void {
         this.data.push(file);
         console.log(file);
-        
+
         localStorage.setItem("fileListData", JSON.stringify(this.data))
         axios.post('https://localhost:44331/api/Files', file)
-          .then(function (response: any) {
-            console.log(response);
-          })
-          .catch(function (error: any) {
-            console.log(error);
-          });
-        
+            .then(function (response: any) {
+                console.log(response);
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            });
+
         this.showListForTable();
     }
 
