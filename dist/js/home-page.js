@@ -3533,9 +3533,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileAndFolderList", function() { return FileAndFolderList; });
 /* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/_forms */ "./src/scripts/components/_forms.ts");
 
+<<<<<<< HEAD
 
 const axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
+=======
+>>>>>>> 89a9a12ee0c2bf397913061004cf09027cff8e07
 var iconForFileType;
 
 (function (iconForFileType) {
