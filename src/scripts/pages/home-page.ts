@@ -11,12 +11,12 @@ ready(() => {
   //listManage
   let a = new FileAndFolderList()
   a.showListForTable()
-
+  
   //create form
   closeCreateForm();
   showCreateForm();
   createFile(a);
-  
+
 
   //upload form
   closeUploadForm();
@@ -25,7 +25,7 @@ ready(() => {
 
   //update form
   closeUpdateForm()
-  showUpdateForm()
+  showUpdateForm([])
   updateFile(a)
   deleteFile(a)
 });

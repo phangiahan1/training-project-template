@@ -1,5 +1,5 @@
 export interface FileFormatter {
-  id: string;
+  FileId: string;
   name: string;
   extension: string;
   createAt: Date;

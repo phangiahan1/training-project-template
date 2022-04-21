@@ -1,8 +1,10 @@
 //create form
+import { FileFormatter } from '../interfaces/FileFormat';
 import { File } from '../models/file';
 import { FileAndFolderList } from '../models/FileAndFolderList'
 import { Folder } from '../models/folder';
 const { v4: uuidv4 } = require('uuid');
+const axios = require('axios').default;
 let idRow: string;
 
 export function showCreateForm() {
@@ -34,7 +36,7 @@ export function createFile(a: FileAndFolderList) {
             e.preventDefault()
             let uploadFileName = (document.getElementById('createFormInput') as HTMLInputElement);
             if (uploadFileName) {
-                console.log(uploadFileName);
+                //console.log(uploadFileName);
                 const element = uploadFileName;
                 const newFile = new Folder(uuidv4() as string, uploadFileName.value, '', dateTime, "Admin", dateTime, "Admin")
                 a.upload(newFile)
@@ -78,7 +80,7 @@ export function uploadFile(a: FileAndFolderList) {
             e.preventDefault()
             let uploadFileName = (document.getElementById('uploadFormInput') as HTMLInputElement).files;
             if (uploadFileName) {
-                console.log(uploadFileName);
+                //console.log(uploadFileName);
                 for (let index = 0; index < uploadFileName.length; index++) {
                     const element = uploadFileName[index];
                     const newFile = new File(uuidv4() as string, element.name, getExtension(element.name), dateTime, "Admin", dateTime, "Admin")
@@ -91,34 +93,22 @@ export function uploadFile(a: FileAndFolderList) {
 }
 
 //update form
-export function showUpdateForm() {
-    const documents = new FileAndFolderList();
-    documents.data.forEach((item, index) => {
+export function showUpdateForm(a: Array<FileFormatter>) {
+    console.log("show updtae form");
+
+    let tmp: any;
+
+    a.forEach((item, index) => {
         let updateBtn = document.getElementById(`editFileBtn-${index}`);
         updateBtn!.addEventListener("click", () => {
-            idRow = item.id
+            idRow =  item.fileId      
+            console.log(idRow); 
             document.getElementById('formUpdateFolder')!.style.display = 'block';
             let tmp = item.name.split(".");
             (document.getElementById('updateFormInput') as HTMLInputElement).value = tmp[0]
         });
     });
-    // let updateBtn = document.getElementById(`editFileBtn-${}`);
-    // if (updateBtn) {
-    //     updateBtn.addEventListener("click", function (e) {
-    //         e.preventDefault();
-    //         var tmp: any
-    //         tmp = e.target
-    //         tmp = tmp.parentNode.parentNode.id
-    //         console.log(tmp);
-    //         var rowId = tmp;
-    //         idRow = rowId;
-    //         var data = document.getElementById(rowId)!.querySelectorAll(".row-data");
-    //         var nameFile = data[0].innerHTML.split("</i>")
-    //         var name = nameFile[1].trim().split(".")
-    //         document.getElementById('formUpdateFolder')!.style.display = 'block';
-    //         (document.getElementById('updateFormInput') as HTMLInputElement).value = name[0]
-    //     }, true)
-    // }
+    console.log("end updtae form");
 }
 
 export function closeUpdateForm() {
@@ -147,13 +137,17 @@ export function updateFile(a: FileAndFolderList) {
 }
 
 export function deleteFile(a: FileAndFolderList) {
+    console.log("Join Delete file");
+    
     let deleteBtn = document.getElementById("deleteFormButton");
     if (deleteBtn) {
         deleteBtn.addEventListener("click", function (e) {
             e.preventDefault();
-            if (idRow)
+            if (idRow){
+                console.log(idRow);
                 a.delete(idRow)
-            window.location.reload();
+            } 
+            window.location.reload();               
             document.getElementById('formUpdateFolder')!.style.display = 'none';
         }, true)
     }

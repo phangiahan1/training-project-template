@@ -184,14 +184,14 @@
                 (document.getElementById('updateFormButton')).disabled = true;
             };
         }
-        function show() {
-            var rowId = event.target.parentNode.parentNode.id;
-            var data = document.getElementById(rowId).querySelectorAll(".row-data");
-            var nameFile = data[0].innerHTML.split("</i>")
-            var name = nameFile[1].trim().split(".")
-            document.getElementById('formUpdateFolder').style.display = 'block'
-            document.getElementById('updateFormInput').value = name[0]
-        }
+        // function show() {
+        //     var rowId = event.target.parentNode.parentNode.id;
+        //     var data = document.getElementById(rowId).querySelectorAll(".row-data");
+        //     var nameFile = data[0].innerHTML.split("</i>")
+        //     var name = nameFile[1].trim().split(".")
+        //     document.getElementById('formUpdateFolder').style.display = 'block'
+        //     document.getElementById('updateFormInput').value = name[0]
+        // }
     </script>
 </body>
 
