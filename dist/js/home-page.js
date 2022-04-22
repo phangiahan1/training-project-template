@@ -3380,7 +3380,8 @@ function createFile(a) {
         const newFile = new _models_folder__WEBPACK_IMPORTED_MODULE_1__["Folder"](uuidv4(), uploadFileName.value, '', dateTime, "Admin", dateTime, "Admin");
         a.upload(newFile);
         document.getElementById('formCreateFolder').style.display = 'none';
-      }
+      } //window.location.reload();
+
     }, true);
   }
 } //upload form
@@ -3429,14 +3430,13 @@ function uploadFile(a) {
           a.upload(newFile);
           document.getElementById('formUploadFolder').style.display = 'none';
         }
-      }
+      } //window.location.reload();               
+
     }, true);
   }
 } //update form
 
 function showUpdateForm(a) {
-  console.log("show updtae form");
-  let tmp;
   a.forEach((item, index) => {
     let updateBtn = document.getElementById(`editFileBtn-${index}`);
     updateBtn.addEventListener("click", () => {
@@ -3447,7 +3447,6 @@ function showUpdateForm(a) {
       document.getElementById('updateFormInput').value = tmp[0];
     });
   });
-  console.log("end updtae form");
 }
 function closeUpdateForm() {
   const uploadBtn = document.getElementById("closeUpdateFormBtn");
@@ -3462,13 +3461,18 @@ function closeUpdateForm() {
 function updateFile(a) {
   let updateBtn = document.getElementById("updateFormButton");
   const input = document.querySelector("#updateFormInput");
-  let dateTime = new Date();
 
   if (updateBtn) {
     updateBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      if (input && idRow) a.edit(idRow, input.value);
-      window.location.reload();
+
+      if (input && idRow) {
+        console.log("start update");
+        a.edit(idRow, input.value);
+      } //setTimeout(window.location.reload, 10)
+      //window.location.reload();
+
+
       document.getElementById('formUpdateFolder').style.display = 'none';
     }, true);
   }
@@ -3603,9 +3607,12 @@ class FileAndFolderList {
   upload(file) {
     this.data.push(file); //localStorage.setItem("fileListData", JSON.stringify(this.data))
 
-    axios.post('https://localhost:44331/api/Files', file).then(function (response) {//console.log("Da thanh cong: response");
+    axios.post('https://localhost:44331/api/Files', file).then(function (response) {
+      //console.log("Da thanh cong: response");
       //console.log(response);
-    }).catch(function (error) {//console.log(error);
+      window.location.reload();
+    }).catch(function (error) {
+      console.log(error);
     });
     this.showListForTable();
   }
@@ -3627,20 +3634,26 @@ class FileAndFolderList {
   }
 
   edit(id, name) {
-    let index = this.data.findIndex(function (obj) {
-      return obj.FileId == id;
+    console.log(name);
+    console.log(id);
+    let newFile;
+    axios.get('https://localhost:44331/api/Files/' + id).then(function (response) {
+      //console.log("Da thanh cong: response");
+      console.log(response);
+      newFile = response.data;
+      newFile.name = name;
+      newFile.modifiedAt = new Date();
+    }).then(function () {
+      axios.put('https://localhost:44331/api/Files/' + id, newFile).then(function (response) {
+        //console.log("Da thanh cong: response");
+        console.log("update thanh cong");
+        window.location.reload();
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }).catch(function (error) {
+      console.log(error);
     });
-
-    if (this.data[index].extension) {
-      this.data[index].name = name + '.' + this.data[index].extension;
-    } else this.data[index].name;
-
-    this.data[index].modifiedBy = 'Gia Han';
-    this.data[index].modifiedAt = new Date(); // this.data.splice(index, 1)
-
-    let JSONdata = JSON.stringify(this.data);
-    localStorage.setItem('fileListData', JSONdata);
-    this.showListForTable();
   }
 
 }

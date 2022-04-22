@@ -76,7 +76,7 @@ export class FileAndFolderList {
                 tbody.innerHTML = _tr;
                 console.log("Show table success");
                 t = this.data
-           })
+            })
             .catch(function (error: any) {
                 // handle error
                 console.log(error);
@@ -94,9 +94,10 @@ export class FileAndFolderList {
             .then(function (response: any) {
                 //console.log("Da thanh cong: response");
                 //console.log(response);
+                window.location.reload()
             })
             .catch(function (error: any) {
-                //console.log(error);
+                console.log(error);
             });
         this.showListForTable()
     }
@@ -111,30 +112,42 @@ export class FileAndFolderList {
         // localStorage.setItem('fileListData', JSONdata)
         console.log("id");
         console.log(id);
-        
+
         axios.delete('https://localhost:44331/api/Files/' + id).then(function () {
             // always executed
             console.log("delete success");
-            
-          });
+
+        });
         this.showListForTable();
     }
 
     public edit(id: string, name: string): void {
-        let index = this.data.findIndex(function (obj) {
-            return obj.FileId == id;
-        })
-        if (this.data[index].extension) {
-            this.data[index].name = name + '.' + this.data[index].extension;
-        } else
-            this.data[index].name
+        console.log(name);
+        console.log(id);
 
-        this.data[index].modifiedBy = 'Gia Han'
-        this.data[index].modifiedAt = new Date();
+        let newFile: FileFormatter
 
-        // this.data.splice(index, 1)
-        let JSONdata = JSON.stringify(this.data);
-        localStorage.setItem('fileListData', JSONdata)
-        this.showListForTable();
+        axios.get('https://localhost:44331/api/Files/' + id)
+            .then(function (response: any) {
+                //console.log("Da thanh cong: response");
+                console.log(response)
+                newFile = response.data
+                newFile.name = name
+                newFile.modifiedAt = new Date()
+            })
+            .then(function () {
+                axios.put('https://localhost:44331/api/Files/' + id, newFile)
+                    .then(function (response: any) {
+                        //console.log("Da thanh cong: response");
+                        console.log("update thanh cong");
+                        window.location.reload();
+                    })
+                    .catch(function (error: any) {
+                        console.log(error);
+                    });
+            })
+            .catch(function (error: any) {
+                console.log(error);
+            })
     }
 } 

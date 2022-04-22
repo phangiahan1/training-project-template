@@ -42,6 +42,7 @@ export function createFile(a: FileAndFolderList) {
                 a.upload(newFile)
                 document.getElementById('formCreateFolder')!.style.display = 'none';
             }
+            //window.location.reload();
         }, true)
     }
 }
@@ -88,16 +89,13 @@ export function uploadFile(a: FileAndFolderList) {
                     document.getElementById('formUploadFolder')!.style.display = 'none';
                 }
             }
+            //window.location.reload();               
         }, true)
     }
 }
 
 //update form
 export function showUpdateForm(a: Array<FileFormatter>) {
-    console.log("show updtae form");
-
-    let tmp: any;
-
     a.forEach((item, index) => {
         let updateBtn = document.getElementById(`editFileBtn-${index}`);
         updateBtn!.addEventListener("click", () => {
@@ -108,7 +106,6 @@ export function showUpdateForm(a: Array<FileFormatter>) {
             (document.getElementById('updateFormInput') as HTMLInputElement).value = tmp[0]
         });
     });
-    console.log("end updtae form");
 }
 
 export function closeUpdateForm() {
@@ -124,13 +121,16 @@ export function closeUpdateForm() {
 export function updateFile(a: FileAndFolderList) {
     let updateBtn = document.getElementById("updateFormButton");
     const input = document.querySelector("#updateFormInput");
-    let dateTime = new Date()
     if (updateBtn) {
         updateBtn.addEventListener("click", function (e) {
             e.preventDefault();
-            if (input && idRow)
+            if (input && idRow){
+                console.log("start update");
+                
                 a.edit(idRow, (input as HTMLInputElement).value)
-            window.location.reload();
+            }
+            //setTimeout(window.location.reload, 10)
+            //window.location.reload();
             document.getElementById('formUpdateFolder')!.style.display = 'none';
         }, true)
     }
